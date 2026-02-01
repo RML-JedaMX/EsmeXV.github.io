@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html class="light" lang="es"><head>
+<html class="light" lang="es"><head></head><body class="bg-background-light dark:bg-background-dark text-[#1b0d17] dark:text-white">```html
+
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Los XV de Esmeralda - Una Historia Guiada</title>
@@ -60,7 +61,8 @@
             10% { opacity: 0.8; }
             50% { transform: translate(20px, 50vh) rotate(180deg) scale(1); opacity: 0.9; }
             100% { transform: translate(-20px, 110vh) rotate(360deg) scale(0.8); opacity: 0; }
-        }.reveal-element {
+        }
+        .reveal-element {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 1s cubic-bezier(0.5, 0, 0, 1), transform 1s cubic-bezier(0.5, 0, 0, 1);
@@ -68,7 +70,8 @@
         .reveal-element.visible {
             opacity: 1;
             transform: translateY(0);
-        }.delay-100 { transition-delay: 100ms; }
+        }
+        .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
         ::-webkit-scrollbar {
@@ -84,9 +87,30 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #f042b6;
         }
+        @keyframes icon-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+        }
+        @keyframes icon-tilt {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-15deg); }
+            75% { transform: rotate(15deg); }
+        }
+        @keyframes icon-sway {
+            0%, 100% { transform: rotate(-10deg) scale(1); }
+            50% { transform: rotate(10deg) scale(1.1); }
+        }
+        @keyframes icon-glow {
+            0%, 100% { text-shadow: 0 0 2px rgba(255,255,255,0.3); transform: scale(1); }
+            50% { text-shadow: 0 0 10px rgba(255,255,255,1); transform: scale(1.1); }
+        }
+        .animate-pulse-icon { animation: icon-pulse 2.5s ease-in-out infinite; }
+        .animate-tilt-icon { animation: icon-tilt 2s ease-in-out infinite; }
+        .animate-sway-icon { animation: icon-sway 3s ease-in-out infinite; transform-origin: bottom center; }
+        .animate-glow-icon { animation: icon-glow 2s ease-in-out infinite; }
     </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark text-[#1b0d17] dark:text-white">
+
+
 <div class="fixed inset-0 pointer-events-none z-50 overflow-hidden" id="petal-container"></div>
 <div class="fixed top-0 z-50 w-full bg-[#fcf8fa]/95 dark:bg-[#22101c]/95 backdrop-blur-md border-b border-[#f3e7ef] dark:border-[#3a1d30]">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -138,6 +162,10 @@
 <a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#gallery">
 <div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div>
 <span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Galería</span>
+</a>
+<a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#dresscode">
+<div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div>
+<span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Vestimenta</span>
 </a>
 <a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#rsvp">
 <div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div>
@@ -252,7 +280,7 @@
 <p class="text-primary font-black mt-1">1:00 PM</p>
 </div>
 <div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
-<span class="material-symbols-outlined text-xl">church</span>
+<span class="material-symbols-outlined text-xl animate-pulse-icon">church</span>
 </div>
 <div class="md:w-1/2 md:pl-12 hidden md:block">
 <p class="text-gray-500 text-sm">Acompáñanos en una hermosa misa en la Parroquia de Cristo Rey.</p>
@@ -263,7 +291,7 @@
 <p class="text-gray-500 text-sm">Una hora encantadora de aperitivos y bebidas mientras llegan los invitados.</p>
 </div>
 <div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
-<span class="material-symbols-outlined text-xl">wine_bar</span>
+<span class="material-symbols-outlined text-xl animate-tilt-icon">wine_bar</span>
 </div>
 <div class="md:w-1/2 md:pl-12">
 <h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Cóctel de Bienvenida</h4>
@@ -276,7 +304,7 @@
 <p class="text-primary font-black mt-1">4:30 PM</p>
 </div>
 <div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
-<span class="material-symbols-outlined text-xl">piano</span>
+<span class="material-symbols-outlined text-xl animate-sway-icon">music_note</span>
 </div>
 <div class="md:w-1/2 md:pl-12 hidden md:block">
 <p class="text-gray-500 text-sm">La presentación tradicional y el primer baile con mi padre.</p>
@@ -287,7 +315,7 @@
 <p class="text-gray-500 text-sm">¡Sigue la cena, y luego bailamos toda la noche!</p>
 </div>
 <div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
-<span class="material-symbols-outlined text-xl">restaurant</span>
+<span class="material-symbols-outlined text-xl animate-glow-icon">restaurant</span>
 </div>
 <div class="md:w-1/2 md:pl-12">
 <h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Cena y Baile</h4>
@@ -302,14 +330,14 @@
 <span class="text-xs opacity-60">Amazon / Target</span>
 </div>
 <div class="flex flex-col items-center p-6 rounded-2xl bg-[#fcf8fa] dark:bg-white/5 border border-primary/5">
-<span class="material-symbols-outlined text-primary mb-2">checkroom</span>
-<span class="text-sm font-bold">Código de Vestimenta</span>
-<span class="text-xs opacity-60">Etiqueta Rigurosa</span>
-</div>
-<div class="flex flex-col items-center p-6 rounded-2xl bg-[#fcf8fa] dark:bg-white/5 border border-primary/5">
 <span class="material-symbols-outlined text-primary mb-2">hotel</span>
 <span class="text-sm font-bold">Hospedaje</span>
 <span class="text-xs opacity-60">Tarifas Especiales</span>
+</div>
+<div class="flex flex-col items-center p-6 rounded-2xl bg-[#fcf8fa] dark:bg-white/5 border border-primary/5">
+<span class="material-symbols-outlined text-primary mb-2">palette</span>
+<span class="text-sm font-bold">Paleta de Colores</span>
+<span class="text-xs opacity-60">Rosa &amp; Dorado</span>
 </div>
 </div>
 </div>
@@ -346,6 +374,50 @@
 <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
 <img alt="Momentos 6" class="w-full aspect-square object-cover object-right transform transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA02y3OJanZEZTY2hOEINovRqNxKIQ8d01ClsYu_yR9QBWSbYLvgyj9zZ58QVm9bRE_y_10f-wZqfpCv9WeaJQljXcIRrSireoFc7vcDC9yY5YuNf3KJraPkcjLZviGCKNpPo2-eNUuDieOtgCQbQfD_4C2cJXjOeXDVvC5hApcgwfoYOeP3ti7GyRbz9_l2vtDnOiln9zzGLJPftJ8dedz4Zyq9R9dNFWxz8Vyn0hCwZhMg0rG-SDY7BP8KMAyi7DhE665o6x2EEE5"/>
 </div>
+</div>
+</div>
+</section>
+<section class="section-container bg-white dark:bg-[#2a1424]" id="dresscode">
+<div class="max-w-4xl w-full flex flex-col items-center reveal-element">
+<div class="text-center mb-16">
+<span class="material-symbols-outlined text-5xl text-gold-accent mb-4 animate-bounce-slow">checkroom</span>
+<h2 class="text-4xl md:text-5xl font-black text-[#1b0d17] dark:text-white">Código de Vestimenta</h2>
+<p class="text-primary text-sm font-bold uppercase tracking-[0.3em] mt-4">Elegancia Esmeralda</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full px-4">
+<div class="relative group p-8 rounded-[2rem] bg-[#fcf8fa] dark:bg-white/5 border border-primary/10 overflow-hidden text-center hover:border-gold-accent/50 transition-all duration-500">
+<div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="size-24 rounded-full bg-white dark:bg-[#22101c] border-2 border-gold-accent/30 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-5xl text-[#1b0d17] dark:text-white">man</span>
+</div>
+<h3 class="text-2xl font-bold font-display text-[#1b0d17] dark:text-white mb-2">Caballeros</h3>
+<p class="text-gold-accent font-black uppercase tracking-widest text-xs mb-4">Formal / Etiqueta</p>
+<p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            Traje completo o smoking. La elegancia es la clave para acompañar esta noche especial.
+                        </p>
+</div>
+</div>
+<div class="relative group p-8 rounded-[2rem] bg-[#fcf8fa] dark:bg-white/5 border border-primary/10 overflow-hidden text-center hover:border-gold-accent/50 transition-all duration-500">
+<div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="size-24 rounded-full bg-white dark:bg-[#22101c] border-2 border-gold-accent/30 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-5xl text-[#1b0d17] dark:text-white">woman</span>
+</div>
+<h3 class="text-2xl font-bold font-display text-[#1b0d17] dark:text-white mb-2">Damas</h3>
+<p class="text-gold-accent font-black uppercase tracking-widest text-xs mb-4">Vestido Largo</p>
+<p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            Vestido de noche largo y elegante. Brilla con nosotros en esta celebración única.
+                        </p>
+</div>
+</div>
+</div>
+<div class="mt-12 p-8 text-center max-w-2xl relative">
+<span class="material-symbols-outlined absolute top-0 left-0 text-4xl text-gold-accent/20 -translate-y-1/2 -translate-x-1/2">format_quote</span>
+<p class="text-xl md:text-2xl font-serif italic text-[#1b0d17]/80 dark:text-white/90">
+                    "Formal: Queremos verte brillar, por favor asiste con vestimenta formal."
+                </p>
+<span class="material-symbols-outlined absolute bottom-0 right-0 text-4xl text-gold-accent/20 translate-y-1/2 translate-x-1/2 transform rotate-180">format_quote</span>
 </div>
 </div>
 </section>
