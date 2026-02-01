@@ -42,6 +42,20 @@
         }
         .nav-link.active .nav-dot {
             @apply bg-primary scale-125;
+        }.petal {
+            position: fixed;
+            z-index: 50;
+            pointer-events: none;
+            background: radial-gradient(circle at 30% 30%, #ffd7e6, #f042b6);
+            opacity: 0.7;
+            border-radius: 10% 80% 30% 80%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        @keyframes falling {
+            0% { transform: translate(0, -10vh) rotate(0deg) scale(0.8); opacity: 0; }
+            10% { opacity: 0.8; }
+            50% { transform: translate(20px, 50vh) rotate(180deg) scale(1); opacity: 0.9; }
+            100% { transform: translate(-20px, 110vh) rotate(360deg) scale(0.8); opacity: 0; }
         }
         ::-webkit-scrollbar {
             width: 8px;
@@ -59,6 +73,7 @@
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#1b0d17] dark:text-white">
+<div class="fixed inset-0 pointer-events-none z-50 overflow-hidden" id="petal-container"></div>
 <div class="fixed top-0 z-50 w-full bg-[#fcf8fa]/95 dark:bg-[#22101c]/95 backdrop-blur-md border-b border-[#f3e7ef] dark:border-[#3a1d30]">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <header class="flex items-center justify-between py-4">
@@ -68,9 +83,18 @@
 </div>
 <div class="hidden lg:flex items-center gap-6">
 <div class="flex gap-4 text-center">
-<div class="flex flex-col"><span class="text-primary font-bold">24</span><span class="text-[9px] uppercase opacity-60">Días</span></div>
-<div class="flex flex-col"><span class="text-primary font-bold">08</span><span class="text-[9px] uppercase opacity-60">Hrs</span></div>
-<div class="flex flex-col"><span class="text-primary font-bold">30</span><span class="text-[9px] uppercase opacity-60">Min</span></div>
+<div class="flex flex-col">
+<span class="text-primary font-bold" id="days">--</span>
+<span class="text-[9px] uppercase opacity-60">Días</span>
+</div>
+<div class="flex flex-col">
+<span class="text-primary font-bold" id="hours">--</span>
+<span class="text-[9px] uppercase opacity-60">Hrs</span>
+</div>
+<div class="flex flex-col">
+<span class="text-primary font-bold" id="minutes">--</span>
+<span class="text-[9px] uppercase opacity-60">Min</span>
+</div>
 </div>
 <button class="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20 hover:bg-primary/20 transition-all">
 <span class="material-symbols-outlined text-sm">music_note</span>
@@ -107,15 +131,15 @@
 <div class="absolute inset-0 z-0 bg-cover bg-center" style='background-image: linear-gradient(to bottom, rgba(34, 16, 28, 0.4), rgba(34, 16, 28, 0.7)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsxg0R9wQwwb1z8DIgwyeLv5Wcg3B9E4Ha6WHQoML6wq_68-Zgbzk-An0xYu5yO807wyACjNuKMkFX97GWvZO5K-8rN7NnjVLG7ZhixAvrzIcIMXQ5L7o-wdDzdB9D-ELdYYDdPq4UZv-RVNmyQolDPZzCHi7Vl2L4qyWdQ9IgL6CZTEWTJuPreXIxKoNSH6m6xobGx9zjohAWZSy61aF76otnu4KvoDtBWKYPj6an9fU35uKOjVIvbJ6utFTuDS9X9GbW_781jAGO");'></div>
 <div class="relative z-10 text-center text-white px-4 flex flex-col items-center gap-6 max-w-4xl">
 <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-xs font-bold tracking-[0.2em] uppercase border border-white/20">
-                    Estás Invitado • 24 Oct, 2024
+                    Estás Invitado • 07 Mar, 2026
                 </span>
 <h1 class="text-6xl md:text-8xl font-display font-black leading-none tracking-tighter">
-                    Mis XV Años <br/>
+                Mis XV Años <br/>
 <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 to-pink-400 font-serif italic">Esmeralda</span>
 </h1>
 <p class="text-xl md:text-2xl font-light italic text-white/90 max-w-2xl leading-relaxed">
-                    "Hoy comienza un hermoso viaje... Agradezco a Dios por el regalo de la vida y a mi familia por su amor."
-                </p>
+                "Hoy comienza un hermoso viaje... Agradezco a Dios por el regalo de la vida y a mi familia por su amor."
+            </p>
 <a class="mt-8 flex items-center gap-2 group" href="#about">
 <span class="text-sm font-bold uppercase tracking-[0.3em]">Comenzar la Historia</span>
 <span class="material-symbols-outlined transition-transform group-hover:translate-y-1">expand_more</span>
@@ -130,8 +154,8 @@
 <div class="h-1 w-20 bg-primary/20 rounded-full mt-2"></div>
 </div>
 <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
-                    En estos quince años, he crecido rodeada de amor y sueños. Hoy quiero celebrar la mujer en la que me estoy convirtiendo con aquellos que han guiado mis pasos.
-                </p>
+                En estos quince años, he crecido rodeada de amor y sueños. Hoy quiero celebrar la mujer en la que me estoy convirtiendo con aquellos que han guiado mis pasos.
+            </p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
 <div class="p-8 rounded-2xl border border-primary/10 bg-background-light dark:bg-[#32182b] shadow-sm transform transition-all hover:scale-[1.02]">
 <span class="material-symbols-outlined text-3xl text-primary mb-4">family_restroom</span>
@@ -164,15 +188,15 @@
 <span class="material-symbols-outlined">church</span>
 <span class="font-black uppercase tracking-widest text-xs">Ceremonia Religiosa</span>
 </div>
-<h3 class="text-3xl font-bold mb-4 text-[#1b0d17] dark:text-white leading-tight">Catedral San Patricio</h3>
+<h3 class="text-3xl font-bold mb-4 text-[#1b0d17] dark:text-white leading-tight">Parroquia de Cristo Rey</h3>
 <div class="space-y-3 mb-8 text-gray-600 dark:text-gray-300">
-<div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary/50">schedule</span><span class="text-lg">5:00 PM Puntual</span></div>
-<div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary/50">location_on</span><span class="text-lg">123 Main St, Springfield</span></div>
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary/50">schedule</span><span class="text-lg">1:00 PM Puntual</span></div>
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary/50">location_on</span><span class="text-lg">Zona Centro, Ciudad</span></div>
 </div>
-<button class="mt-auto w-full py-4 rounded-xl bg-primary/5 border border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+<a class="mt-auto w-full py-4 rounded-xl bg-primary/5 border border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2" href="https://www.google.com/maps/search/?api=1&amp;query=Parroquia+de+Cristo+Rey" target="_blank">
 <span class="material-symbols-outlined">map</span>
-                                Ver Mapa
-                            </button>
+                            Abrir en Google Maps
+                        </a>
 </div>
 </div>
 <div class="group rounded-3xl overflow-hidden bg-white dark:bg-[#2a1424] shadow-2xl border border-transparent hover:border-primary/20 transition-all flex flex-col">
@@ -184,13 +208,13 @@
 </div>
 <h3 class="text-3xl font-bold mb-4 text-[#1b0d17] dark:text-white leading-tight">Salón Grand Palace</h3>
 <div class="space-y-3 mb-8 text-gray-600 dark:text-gray-300">
-<div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary/50">schedule</span><span class="text-lg">7:00 PM - 2:00 AM</span></div>
+<div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary/50">schedule</span><span class="text-lg">3:30 PM - 9:00 PM</span></div>
 <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary/50">location_on</span><span class="text-lg">456 Grand Ave, Springfield</span></div>
 </div>
-<button class="mt-auto w-full py-4 rounded-xl bg-primary/5 border border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+<a class="mt-auto w-full py-4 rounded-xl bg-primary/5 border border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2" href="https://www.google.com/maps/search/?api=1&amp;query=Salon+Grand+Palace" target="_blank">
 <span class="material-symbols-outlined">map</span>
-                                Ver Mapa
-                            </button>
+                            Abrir en Google Maps
+                        </a>
 </div>
 </div>
 </div>
@@ -207,13 +231,13 @@
 <div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 pb-16">
 <div class="md:w-1/2 md:text-right md:pr-12">
 <h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Ceremonia Religiosa</h4>
-<p class="text-primary font-black mt-1">5:00 PM</p>
+<p class="text-primary font-black mt-1">1:00 PM</p>
 </div>
 <div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
 <span class="material-symbols-outlined text-xl">church</span>
 </div>
 <div class="md:w-1/2 md:pl-12 hidden md:block">
-<p class="text-gray-500 text-sm">Acompáñanos en una hermosa misa en la Catedral San Patricio.</p>
+<p class="text-gray-500 text-sm">Acompáñanos en una hermosa misa en la Parroquia de Cristo Rey.</p>
 </div>
 </div>
 <div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 pb-16">
@@ -225,13 +249,13 @@
 </div>
 <div class="md:w-1/2 md:pl-12">
 <h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Cóctel de Bienvenida</h4>
-<p class="text-primary font-black mt-1">7:00 PM</p>
+<p class="text-primary font-black mt-1">3:30 PM</p>
 </div>
 </div>
 <div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 pb-16">
 <div class="md:w-1/2 md:text-right md:pr-12">
 <h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">El Vals</h4>
-<p class="text-primary font-black mt-1">8:00 PM</p>
+<p class="text-primary font-black mt-1">4:30 PM</p>
 </div>
 <div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
 <span class="material-symbols-outlined text-xl">piano</span>
@@ -249,7 +273,7 @@
 </div>
 <div class="md:w-1/2 md:pl-12">
 <h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Cena y Baile</h4>
-<p class="text-primary font-black mt-1">9:00 PM - 2:00 AM</p>
+<p class="text-primary font-black mt-1">5:30 PM - 10:00 PM</p>
 </div>
 </div>
 </div>
@@ -280,38 +304,39 @@
 <span class="material-symbols-outlined text-4xl text-primary">mail</span>
 </div>
 <h2 class="text-4xl md:text-5xl font-black mb-4">Capítulo Final: RSVP</h2>
-<p class="text-white/60">Sé parte de esta historia. Por favor confirma antes del 1 de octubre de 2024.</p>
+<p class="text-white/60">Sé parte de esta historia. Por favor confirma antes del 1 de febrero de 2026.</p>
 </div>
 <form class="bg-white/5 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col gap-6">
 <div class="flex flex-col gap-2">
 <label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">Nombre Completo</label>
-<input class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-white/20" placeholder="ej. María González" type="text"/>
+<input class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-white/20" id="rsvp-name" placeholder="ej. María González" type="text"/>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="flex flex-col gap-2">
 <label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">Número de Invitados</label>
-<select class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none">
-<option class="bg-[#22101c]">1 Invitado</option>
-<option class="bg-[#22101c]">2 Invitados</option>
-<option class="bg-[#22101c]">3 Invitados</option>
-<option class="bg-[#22101c]">4 Invitados</option>
+<select class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none" id="rsvp-guests">
+<option class="bg-[#22101c]" value="1">1 Invitado</option>
+<option class="bg-[#22101c]" value="2">2 Invitados</option>
+<option class="bg-[#22101c]" value="3">3 Invitados</option>
+<option class="bg-[#22101c]" value="4">4 Invitados</option>
 </select>
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">¿Asistirás?</label>
-<select class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none">
-<option class="bg-[#22101c]">Acepto con Gusto</option>
-<option class="bg-[#22101c]">Lamentablemente No Asistiré</option>
+<select class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none" id="rsvp-attendance">
+<option class="bg-[#22101c]" value="Sí">Acepto con Gusto</option>
+<option class="bg-[#22101c]" value="No">Lamentablemente No Asistiré</option>
 </select>
 </div>
 </div>
 <div class="flex flex-col gap-2">
 <label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">Mensaje Especial o Restricciones</label>
-<textarea class="w-full h-32 rounded-2xl border-white/10 bg-white/5 p-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none placeholder:text-white/20" placeholder="Notas opcionales..."></textarea>
+<textarea class="w-full h-32 rounded-2xl border-white/10 bg-white/5 p-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none placeholder:text-white/20" id="rsvp-message" placeholder="Notas opcionales..."></textarea>
 </div>
-<button class="mt-4 w-full h-16 rounded-2xl bg-primary text-white text-lg font-black shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all uppercase tracking-widest" type="button">
-                        Confirmar Asistencia
-                    </button>
+<button class="mt-4 w-full h-16 rounded-2xl bg-primary text-white text-lg font-black shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all uppercase tracking-widest flex items-center justify-center gap-2" onclick="sendWhatsapp()" type="button">
+<span class="material-symbols-outlined">send</span>    
+                    Confirmar por WhatsApp
+                </button>
 </form>
 <footer class="mt-20 text-center pb-8">
 <p class="text-white/30 text-xs tracking-[0.2em] mb-4">CREADO CON AMOR PARA LOS XV DE ESMERALDA</p>
@@ -325,8 +350,8 @@
 </section>
 </main>
 <script>
-    // Simple script to handle navigation highlighting based on scroll
     document.addEventListener('DOMContentLoaded', () => {
+        // --- Navigation Logic ---
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
         window.addEventListener('scroll', () => {
@@ -345,7 +370,73 @@
                 }
             });
         });
+        // --- Countdown Timer Logic ---
+        const eventDate = new Date("March 7, 2026 13:00:00").getTime();
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            if (distance < 0) {
+                daysEl.innerText = "00";
+                hoursEl.innerText = "00";
+                minutesEl.innerText = "00";
+                return;
+            }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            daysEl.innerText = days < 10 ? "0" + days : days;
+            hoursEl.innerText = hours < 10 ? "0" + hours : hours;
+            minutesEl.innerText = minutes < 10 ? "0" + minutes : minutes;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        // --- Petal Animation Logic ---
+        const petalContainer = document.getElementById('petal-container');
+        const petalCount = 20;
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            // Randomize size
+            const size = Math.random() * 15 + 10; // 10px to 25px
+            petal.style.width = `${size}px`;
+            petal.style.height = `${size}px`;
+            // Randomize start position
+            petal.style.left = `${Math.random() * 100}vw`;
+            // Randomize animation duration
+            const duration = Math.random() * 5 + 8; // 8s to 13s
+            petal.style.animationDuration = `${duration}s`;
+            // Randomize delay
+            petal.style.animationDelay = `${Math.random() * 5}s`;
+            petalContainer.appendChild(petal);
+            // Remove after animation to clean DOM (optional but good practice, though here we loop infinite in css usually)
+            // For infinite CSS animation, we just leave them.
+            // If we want to recycle, we can. For simplicity, let's just create a set number and let them loop.
+            // But CSS animation is set to infinite. So we just create them once.
+        }
+        for (let i = 0; i < petalCount; i++) {
+            createPetal();
+        }
     });
+    // --- WhatsApp RSVP Logic ---
+    function sendWhatsapp() {
+        const name = document.getElementById('rsvp-name').value;
+        const guests = document.getElementById('rsvp-guests').value;
+        const attendance = document.getElementById('rsvp-attendance').value;
+        const message = document.getElementById('rsvp-message').value;
+        if (!name) {
+            alert("Por favor escribe tu nombre.");
+            return;
+        }
+        const text = `*CONFIRMACIÓN XV ESMERALDA* \n\nHola, soy *${name}*.\n\nAsistencia: *${attendance}*\nInvitados: *${guests}*\nNota: ${message}`;
+        const encodedText = encodeURIComponent(text);
+        // Using a generic phone number placeholder as requested context didn't provide one.
+        // User can replace this number.
+        const phoneNumber = "5215555555555"; 
+        window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
+    }
 </script>
 
 </body></html>
