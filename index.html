@@ -1,363 +1,598 @@
-<!DOCTYPE html>
+<html class="light scroll-smooth" lang="en"><head></head><body class="bg-background-light dark:bg-background-dark text-text-dark dark:text-text-light antialiased selection:bg-primary selection:text-white">```html
 
-<html class="light" lang="en"><head>
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Mis XV Años - Sofia</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#f042b6",
-                        "background-light": "#fcf8fa",
-                        "background-dark": "#22101c",
-                        "gold-accent": "#D4AF37", // Adding a custom gold for the requested palette
-                    },
-                    fontFamily: {
-                        "display": ["Plus Jakarta Sans", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.5rem",
-                        "lg": "1rem",
-                        "xl": "1.5rem",
-                        "full": "9999px"
-                    },
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#C58F7D", // Rose Gold
+                    "primary-hover": "#B07D6C",
+                    "secondary": "#E8DCD5", // Champagne
+                    "background-light": "#FDFBF9",
+                    "background-dark": "#2A1F1D",
+                    "text-dark": "#4A3B38",
+                    "text-light": "#F9F4F2",
+                    "gold-accent": "#D4AF37",
                 },
+                fontFamily: {
+                    "sans": ["Plus Jakarta Sans", "sans-serif"],
+                    "serif": ["Playfair Display", "serif"],
+                    "display": ["Playfair Display", "serif"]
+                },
+                animation: {
+                    'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    'fade-in': 'fadeIn 1.5s ease-out forwards',
+                    'spin-slow': 'spin 8s linear infinite',
+                },
+                keyframes: {
+                    fadeInUp: {
+                        '0%': { opacity: '0', transform: 'translateY(30px)' },
+                        '100%': { opacity: '1', transform: 'translateY(0)' },
+                    },
+                    fadeIn: {
+                        '0%': { opacity: '0' },
+                        '100%': { opacity: '1' },
+                    }
+                }
             },
-        }
-    </script>
+        },
+    }
+</script>
 <style>
-        body {
-            font-family: "Plus Jakarta Sans", sans-serif;
-        }
-        /* Custom scrollbar for better aesthetic */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #fcf8fa;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #e7cfdf;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #f042b6;
-        }
-    </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark text-[#1b0d17] dark:text-white">
-<!-- Sticky Header with Timer and Music -->
-<div class="sticky top-0 z-50 w-full bg-[#fcf8fa]/90 dark:bg-[#22101c]/90 backdrop-blur-md border-b border-[#f3e7ef] dark:border-[#3a1d30]">
+    body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+    }html {
+        scroll-behavior: smooth;
+    }::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #FDFBF9;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #C58F7D;
+        border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #B07D6C;
+    }.lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background-color: rgba(42, 31, 29, 0.95);
+        backdrop-filter: blur(8px);
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .lightbox:target {
+        display: flex;
+        opacity: 1;
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+    .lightbox-image {
+        border-radius: 4px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }.gallery-item {
+        break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+    .gallery-overlay {
+        background: linear-gradient(to top, rgba(197, 143, 125, 0.8), transparent);
+    }
+</style>
+
+
+<div class="lightbox group" id="img1">
+<a class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50 p-2" href="#gallery">
+<span class="material-symbols-outlined text-4xl font-light">close</span>
+</a>
+<a class="absolute left-4 md:left-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img6">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:-translate-x-1 transition-transform">chevron_left</span>
+</a>
+<a class="absolute right-4 md:right-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img2">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<a class="absolute inset-0 cursor-default w-full h-full" href="#gallery"></a>
+<div class="relative z-10 flex flex-col items-center justify-center max-w-[90vw] max-h-[95vh] pointer-events-none">
+<img alt="Gallery Image 1" class="lightbox-image object-contain max-h-[80vh] w-auto pointer-events-auto shadow-2xl ring-1 ring-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNSTxT-ahbRrvZEzNyN5hoi48JVyT5KOJqJMN371zpPdjaQiftwx4iPp9xbqVNDv-PCgbve0S-EwICsE9ZpS2QnCjINTL1hyA2dxs0O7eTTh3zriGGPJux1NEF1at5Yoe3Ic5Tv_b-G0jEZDtoytgEoLh-ed8c12sGgdF8cyXZzF3ZLECJyDltISQOatshs2h2LqqibpWxcnc32r4GvSqo_w-GrKKg0tRF1OwfCGXaB2TLubMQD-Teq16UMFEfS3IwnWZNx1a2P9rV"/>
+<div class="mt-6 text-center animate-fade-in-up">
+<p class="text-secondary font-serif text-2xl md:text-3xl italic font-medium tracking-wide drop-shadow-md">Sofia - Session in the Park</p>
+</div>
+</div>
+</div>
+<div class="lightbox group" id="img2">
+<a class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50 p-2" href="#gallery">
+<span class="material-symbols-outlined text-4xl font-light">close</span>
+</a>
+<a class="absolute left-4 md:left-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img1">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:-translate-x-1 transition-transform">chevron_left</span>
+</a>
+<a class="absolute right-4 md:right-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img3">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<a class="absolute inset-0 cursor-default w-full h-full" href="#gallery"></a>
+<div class="relative z-10 flex flex-col items-center justify-center max-w-[90vw] max-h-[95vh] pointer-events-none">
+<img alt="Gallery Image 2" class="lightbox-image object-contain max-h-[80vh] w-auto pointer-events-auto shadow-2xl ring-1 ring-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8VmmG8wGy_ln5yss0VYjsN9USs6zxtpVfllOAIFdfGS9ZgDhNVReSzVXfgxPRU-Tc1vXZSw3bbplqkUzFqtbim__pRVss609cAd1NdZRXOW7vX-dpDVIsM1wRh9ood0w2LBjZXfB_iU-tbWtO_ajAtagtpiRzYzETUqVbtayRDqw1Lu-4HwJnGFA4jL44ePE1JSL5trxNp-2CdOwtwka-sJAUYZJ_4xLzIZ8EfCzJPaoVIsCsssyoKQELAGMFsSIoO811ZNsEHl88"/>
+<div class="mt-6 text-center animate-fade-in-up">
+<p class="text-secondary font-serif text-2xl md:text-3xl italic font-medium tracking-wide drop-shadow-md">Elegant Details</p>
+</div>
+</div>
+</div>
+<div class="lightbox group" id="img3">
+<a class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50 p-2" href="#gallery">
+<span class="material-symbols-outlined text-4xl font-light">close</span>
+</a>
+<a class="absolute left-4 md:left-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img2">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:-translate-x-1 transition-transform">chevron_left</span>
+</a>
+<a class="absolute right-4 md:right-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img4">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<a class="absolute inset-0 cursor-default w-full h-full" href="#gallery"></a>
+<div class="relative z-10 flex flex-col items-center justify-center max-w-[90vw] max-h-[95vh] pointer-events-none">
+<img alt="Gallery Image 3" class="lightbox-image object-contain max-h-[80vh] w-auto pointer-events-auto shadow-2xl ring-1 ring-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIz6yzYV2SFcDU4pnvWyFoBVExTwgupzCJBlBsgnI8e8_IxkFJyMdGYaaW3jvfDxMBYwYhBh4aQgPVHYuMidPDPy1liqklQ5zZZH7PfolJ3sWuQKyHPrTXnPx0gTESw5LxxYrLZEgHjAhpOv27CwjNTmQVvUwRqbwnCRtVjcakvdivPelpJsdlPTGt0RmNLHRLEPjxw1Pyv-gdK63MNweMGCvleq2PvsH3kJ2cX8bZzv0wKGijhA9KInIF1PkKbPB1rQ634cFmABF1"/>
+<div class="mt-6 text-center animate-fade-in-up">
+<p class="text-secondary font-serif text-2xl md:text-3xl italic font-medium tracking-wide drop-shadow-md">Joyful Celebration</p>
+</div>
+</div>
+</div>
+<div class="lightbox group" id="img4">
+<a class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50 p-2" href="#gallery">
+<span class="material-symbols-outlined text-4xl font-light">close</span>
+</a>
+<a class="absolute left-4 md:left-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img3">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:-translate-x-1 transition-transform">chevron_left</span>
+</a>
+<a class="absolute right-4 md:right-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img5">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<a class="absolute inset-0 cursor-default w-full h-full" href="#gallery"></a>
+<div class="relative z-10 flex flex-col items-center justify-center max-w-[90vw] max-h-[95vh] pointer-events-none">
+<img alt="Gallery Image 4" class="lightbox-image object-contain max-h-[80vh] w-auto pointer-events-auto shadow-2xl ring-1 ring-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM0zgxfHCTc7bxLD46caKdEaPJGb1jGVaUB13uaUyXeB_Znk4PMqeT586WlDTD0ExR8-wnc9xINgN-7kllFlHRiuv_KAwEqDVSuJVvAVlZGsntjmMW_pi5z4hQTqNfoqHXEnDC9ACgKYrubFLwTGrpXKIqguQiUBiI_GaSj_4ZAX5pTVuK7MLoHci0Xmh794POil_0WGk5et5CxoGl30tPFnU68jSOYvGodN72NKCVgYJOULRYP0DHty02-toSG62JMfzzLOELUkUb"/>
+<div class="mt-6 text-center animate-fade-in-up">
+<p class="text-secondary font-serif text-2xl md:text-3xl italic font-medium tracking-wide drop-shadow-md">The Perfect Dress</p>
+</div>
+</div>
+</div>
+<div class="lightbox group" id="img5">
+<a class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50 p-2" href="#gallery">
+<span class="material-symbols-outlined text-4xl font-light">close</span>
+</a>
+<a class="absolute left-4 md:left-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img4">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:-translate-x-1 transition-transform">chevron_left</span>
+</a>
+<a class="absolute right-4 md:right-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img6">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<a class="absolute inset-0 cursor-default w-full h-full" href="#gallery"></a>
+<div class="relative z-10 flex flex-col items-center justify-center max-w-[90vw] max-h-[95vh] pointer-events-none">
+<img alt="Gallery Image 5" class="lightbox-image object-contain max-h-[80vh] w-auto pointer-events-auto shadow-2xl ring-1 ring-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXbKSDmYB6ksZceVwslbXVMCgLXvKJxrE1wE0NuTM_CDCAyem7gY6A6Ddny7vWseR3k5Oxf659tDJ6_1QjBHWYwpe3cJ4E6SDrLYPnsVnq9j4Dca2VJKyaTPJne8VEPEn26kdMQO9-iu43nugEsQxPSHQ_khfNNebTofqeffaY66GSE0vxnrHnYacZuHUe_EbFzZL43nyQ7pA49TYZCrb5t-JLBewiik0SOv-XvRphzxiC6cQWH9fnLNR73u4JEe42MSoF9NkbxFG6"/>
+<div class="mt-6 text-center animate-fade-in-up">
+<p class="text-secondary font-serif text-2xl md:text-3xl italic font-medium tracking-wide drop-shadow-md">Blooming Beauty</p>
+</div>
+</div>
+</div>
+<div class="lightbox group" id="img6">
+<a class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50 p-2" href="#gallery">
+<span class="material-symbols-outlined text-4xl font-light">close</span>
+</a>
+<a class="absolute left-4 md:left-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img5">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:-translate-x-1 transition-transform">chevron_left</span>
+</a>
+<a class="absolute right-4 md:right-8 z-50 text-gold-accent hover:text-[#F3E5AB] transition-all hover:scale-110 p-2 rounded-full hover:bg-white/5 group/arrow" href="#img1">
+<span class="material-symbols-outlined text-5xl md:text-7xl font-thin drop-shadow-xl group-hover/arrow:translate-x-1 transition-transform">chevron_right</span>
+</a>
+<a class="absolute inset-0 cursor-default w-full h-full" href="#gallery"></a>
+<div class="relative z-10 flex flex-col items-center justify-center max-w-[90vw] max-h-[95vh] pointer-events-none">
+<img alt="Gallery Image 6" class="lightbox-image object-contain max-h-[80vh] w-auto pointer-events-auto shadow-2xl ring-1 ring-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXGrzOXKYODdR10OpzXOHhG_P_PN0_zbYEaMcEpiO5pBTV2C42K5EfnZAZ0EtCCguhzAjx5ZDPxLWls6DuFWayxyzs7-b0ppVb2Mr8EFCH38V905tvG9FvJ6FJflzPo7noti8KVy3zgFGg9wV6yBxmIHEJ6kJA9MhZa86sPN6eNnDnY0sB9VsyhwMiVVTA5ffpWmnIfRpTiisYO-N5F0LabJZ5z_kDhjFXOx4H_fNSZYfmBmYR9ux9ftxgyY3ITx0ciy9gCll2ke7G"/>
+<div class="mt-6 text-center animate-fade-in-up">
+<p class="text-secondary font-serif text-2xl md:text-3xl italic font-medium tracking-wide drop-shadow-md">Unforgettable Moments</p>
+</div>
+</div>
+</div>
+<div class="sticky top-0 z-40 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-primary/20 transition-all duration-300">
 <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 <header class="flex flex-col md:flex-row items-center justify-between py-3 gap-4">
-<!-- Logo -->
-<div class="flex items-center gap-3">
-<div class="flex items-center justify-center size-10 rounded-full bg-primary/10 text-primary">
-<span class="material-symbols-outlined text-2xl">celebration</span>
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="flex items-center justify-center size-10 rounded-full bg-primary/10 text-primary border border-primary/20 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-2xl">diamond</span>
 </div>
-<h2 class="text-xl font-bold tracking-tight text-[#1b0d17] dark:text-white">Sofia's XV</h2>
+<h2 class="text-2xl font-serif font-bold tracking-tight text-text-dark dark:text-text-light group-hover:text-primary transition-colors">Sofia's XV</h2>
 </div>
-<!-- Timer (Condensed for Header) -->
-<div class="hidden md:flex items-center gap-4">
-<div class="flex gap-2 text-center">
+<div class="hidden md:flex items-center gap-6 bg-secondary/30 dark:bg-white/5 px-6 py-2 rounded-full border border-primary/10">
+<div class="flex gap-4 text-center">
 <div class="flex flex-col">
-<span class="text-primary font-bold text-lg leading-none">24</span>
-<span class="text-[10px] uppercase text-gray-500 font-medium">Days</span>
+<span class="text-primary font-bold text-lg leading-none font-serif">24</span>
+<span class="text-[10px] uppercase text-text-dark/60 dark:text-text-light/60 font-semibold tracking-wider">Days</span>
 </div>
-<span class="text-gray-300 text-lg">:</span>
+<span class="text-primary/40 text-lg self-start py-0.5">:</span>
 <div class="flex flex-col">
-<span class="text-primary font-bold text-lg leading-none">08</span>
-<span class="text-[10px] uppercase text-gray-500 font-medium">Hr</span>
+<span class="text-primary font-bold text-lg leading-none font-serif">08</span>
+<span class="text-[10px] uppercase text-text-dark/60 dark:text-text-light/60 font-semibold tracking-wider">Hr</span>
 </div>
-<span class="text-gray-300 text-lg">:</span>
+<span class="text-primary/40 text-lg self-start py-0.5">:</span>
 <div class="flex flex-col">
-<span class="text-primary font-bold text-lg leading-none">30</span>
-<span class="text-[10px] uppercase text-gray-500 font-medium">Min</span>
-</div>
-<span class="text-gray-300 text-lg">:</span>
-<div class="flex flex-col">
-<span class="text-primary font-bold text-lg leading-none">05</span>
-<span class="text-[10px] uppercase text-gray-500 font-medium">Sec</span>
+<span class="text-primary font-bold text-lg leading-none font-serif">30</span>
+<span class="text-[10px] uppercase text-text-dark/60 dark:text-text-light/60 font-semibold tracking-wider">Min</span>
 </div>
 </div>
 </div>
-<!-- Music Control -->
-<button class="group relative flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-lg shadow-primary/30 transition-all hover:scale-105 hover:bg-primary/90">
+<button class="group relative flex items-center justify-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-primary to-[#d8a494] text-white text-sm font-bold shadow-lg shadow-primary/30 transition-all hover:scale-105 hover:shadow-primary/40 active:scale-95">
 <span class="material-symbols-outlined animate-spin-slow">music_note</span>
-<span>Music On</span>
+<span class="font-medium tracking-wide">Play Music</span>
 </button>
 </header>
 </div>
 </div>
-<!-- Main Content Wrapper -->
 <div class="relative flex flex-col w-full overflow-x-hidden">
-<!-- Hero Section -->
-<section class="relative flex min-h-[600px] flex-col items-center justify-center px-4 py-16 text-center">
-<!-- Background Image with Overlay -->
-<div class="absolute inset-0 z-0 bg-cover bg-center" data-alt="Dreamy portrait of a Quinceañera in a pink dress in a garden" style='background-image: linear-gradient(to bottom, rgba(34, 16, 28, 0.3), rgba(34, 16, 28, 0.6)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsxg0R9wQwwb1z8DIgwyeLv5Wcg3B9E4Ha6WHQoML6wq_68-Zgbzk-An0xYu5yO807wyACjNuKMkFX97GWvZO5K-8rN7NnjVLG7ZhixAvrzIcIMXQ5L7o-wdDzdB9D-ELdYYDdPq4UZv-RVNmyQolDPZzCHi7Vl2L4qyWdQ9IgL6CZTEWTJuPreXIxKoNSH6m6xobGx9zjohAWZSy61aF76otnu4KvoDtBWKYPj6an9fU35uKOjVIvbJ6utFTuDS9X9GbW_781jAGO");'>
+<section class="relative flex min-h-[75vh] flex-col items-center justify-center px-4 py-20 text-center overflow-hidden">
+<div class="absolute inset-0 z-0 bg-cover bg-center animate-fade-in" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsxg0R9wQwwb1z8DIgwyeLv5Wcg3B9E4Ha6WHQoML6wq_68-Zgbzk-An0xYu5yO807wyACjNuKMkFX97GWvZO5K-8rN7NnjVLG7ZhixAvrzIcIMXQ5L7o-wdDzdB9D-ELdYYDdPq4UZv-RVNmyQolDPZzCHi7Vl2L4qyWdQ9IgL6CZTEWTJuPreXIxKoNSH6m6xobGx9zjohAWZSy61aF76otnu4KvoDtBWKYPj6an9fU35uKOjVIvbJ6utFTuDS9X9GbW_781jAGO");'>
+<div class="absolute inset-0 bg-gradient-to-b from-[#2A1F1D]/40 via-[#2A1F1D]/50 to-[#2A1F1D]/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
 </div>
-<div class="relative z-10 flex flex-col items-center gap-6 max-w-3xl animate-fade-in-up">
-<span class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs font-semibold tracking-widest uppercase border border-white/30">
-                    October 24th, 2024
-                </span>
-<h1 class="text-white text-5xl md:text-7xl font-display font-black leading-tight tracking-tight drop-shadow-xl">
-                    Mis XV Años <br/>
-<span class="text-primary-300 text-transparent bg-clip-text bg-gradient-to-r from-pink-200 to-pink-400 font-serif italic">Sofia</span>
+<div class="relative z-10 flex flex-col items-center gap-8 max-w-4xl animate-fade-in-up">
+<span class="inline-block px-6 py-2 rounded-full bg-white/10 backdrop-blur-md text-white text-xs font-bold tracking-[0.2em] uppercase border border-white/20 shadow-lg">
+                October 24th, 2024
+            </span>
+<h1 class="text-white text-6xl md:text-8xl font-serif font-medium leading-none tracking-tight drop-shadow-2xl">
+                Mis XV Años <br/>
+<span class="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#F9F4F2] via-[#E8DCD5] to-[#C58F7D] font-serif italic pb-2">Sofia</span>
 </h1>
-<div class="h-1 w-24 bg-primary rounded-full my-2"></div>
-<h2 class="text-white/90 text-lg md:text-xl font-light italic max-w-2xl leading-relaxed">
-                    "Today starts a beautiful journey... I thank God for the gift of life and my family for their unconditional love."
-                </h2>
-<div class="flex gap-4 mt-4">
-<a class="flex items-center gap-2 rounded-full bg-white text-primary px-8 py-3 text-base font-bold shadow-xl transition-transform hover:-translate-y-1 hover:shadow-2xl" href="#rsvp">
-                        RSVP Now
-                    </a>
+<div class="flex items-center gap-4 w-full justify-center opacity-80">
+<div class="h-px w-16 bg-gradient-to-r from-transparent to-white"></div>
+<div class="size-2 rounded-full bg-primary rotate-45"></div>
+<div class="h-px w-16 bg-gradient-to-l from-transparent to-white"></div>
+</div>
+<h2 class="text-white/90 text-xl md:text-2xl font-light font-serif italic max-w-2xl leading-relaxed drop-shadow-md">
+                "Today starts a beautiful journey... I thank God for the gift of life and my family for their unconditional love."
+            </h2>
+<div class="flex gap-6 mt-8">
+<a class="group relative flex items-center gap-3 rounded-full bg-white text-text-dark px-10 py-4 text-base font-bold shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:bg-secondary" href="#rsvp">
+<span class="uppercase tracking-widest text-xs">RSVP Now</span>
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">arrow_forward</span>
+</a>
 </div>
 </div>
 </section>
-<!-- Parents & Bio Section -->
-<section class="py-16 md:py-24 px-4 bg-white dark:bg-[#2a1424]">
-<div class="max-w-4xl mx-auto flex flex-col items-center text-center gap-8">
-<div class="flex flex-col items-center gap-2">
-<span class="material-symbols-outlined text-4xl text-gold-accent">diversity_3</span>
-<h2 class="text-[#1b0d17] dark:text-white tracking-tight text-3xl font-bold">With the Blessing of</h2>
+<section class="py-20 md:py-32 px-4 bg-background-light dark:bg-background-dark relative overflow-hidden">
+<div class="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-gold-accent/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+<div class="max-w-5xl mx-auto flex flex-col items-center text-center gap-12 relative z-10">
+<div class="flex flex-col items-center gap-4">
+<div class="p-3 rounded-full bg-secondary/50 dark:bg-white/5 text-primary mb-2">
+<span class="material-symbols-outlined text-4xl">diversity_1</span>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-<div class="flex flex-col items-center p-6 rounded-xl border border-primary/10 bg-background-light dark:bg-[#32182b] shadow-sm">
-<p class="text-primary text-sm font-bold uppercase tracking-wider mb-2">My Parents</p>
-<p class="text-xl font-serif text-[#1b0d17] dark:text-white">Juan &amp; Maria Perez</p>
+<h2 class="text-text-dark dark:text-text-light font-serif text-4xl md:text-5xl font-medium">With the Blessing of</h2>
+<div class="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
 </div>
-<div class="flex flex-col items-center p-6 rounded-xl border border-primary/10 bg-background-light dark:bg-[#32182b] shadow-sm">
-<p class="text-primary text-sm font-bold uppercase tracking-wider mb-2">My Godparents</p>
-<p class="text-xl font-serif text-[#1b0d17] dark:text-white">Carlos &amp; Ana Lopez</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+<div class="group flex flex-col items-center p-10 rounded-2xl border border-primary/10 bg-white dark:bg-[#322523] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-500 hover:-translate-y-1">
+<p class="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-4">My Loving Parents</p>
+<p class="text-2xl md:text-3xl font-serif text-text-dark dark:text-text-light group-hover:text-primary transition-colors">Juan &amp; Maria Perez</p>
+</div>
+<div class="group flex flex-col items-center p-10 rounded-2xl border border-primary/10 bg-white dark:bg-[#322523] shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-500 hover:-translate-y-1">
+<p class="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-4">My Godparents</p>
+<p class="text-2xl md:text-3xl font-serif text-text-dark dark:text-text-light group-hover:text-primary transition-colors">Carlos &amp; Ana Lopez</p>
 </div>
 </div>
-<p class="text-gray-600 dark:text-gray-300 max-w-2xl text-lg leading-relaxed">
-                    It would be an honor to share this special day with you. Your presence is the best gift I could ask for as I celebrate this new chapter of my life.
-                </p>
+<p class="text-text-dark/70 dark:text-text-light/70 max-w-3xl text-lg md:text-xl leading-relaxed font-light italic">
+                It would be an honor to share this special day with you. Your presence is the best gift I could ask for as I celebrate this new chapter of my life.
+            </p>
 </div>
 </section>
-<!-- Events Section (Ceremony & Reception) -->
-<section class="py-16 px-4 bg-background-light dark:bg-background-dark">
-<div class="max-w-5xl mx-auto">
-<h2 class="text-center text-3xl font-bold mb-12 text-[#1b0d17] dark:text-white">The Celebration</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<!-- Ceremony Card -->
-<div class="group flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-[#2a1424] shadow-lg hover:shadow-xl transition-all duration-300 border border-transparent hover:border-primary/20">
-<div class="h-48 bg-cover bg-center relative" data-alt="Interior of a beautiful cathedral with sunlight streaming through stained glass" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCicxJdkUxvchr75j0A-pbmu3WbuYul2-BTEV4IQY56GizIP4M_LKyL38JywWD-jO0WB-8TDRTQd90UDM5WEU3ZOO-cSg5xD_W_TcKvMKx0UrfiooGcc5hvP5viBcJTkVw5rzraCXU5fpKrSy9C4tw3nxOAz2J6IZQp58eg8ahx8WHc2j0g2NKXNoE6SlRqVkBtqEh4lTy3rP8Xoq2fHf4PoTT9C2H9V-ICFqzKcifAYPkAe4m3xFneV3VFCWJMdDR7hFYlcQU-klu5");'>
-<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<section class="py-20 px-4 bg-secondary/20 dark:bg-[#251b19]" id="gallery">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<span class="text-primary text-xs font-bold uppercase tracking-[0.25em]">Memories</span>
+<h2 class="text-4xl md:text-5xl font-serif font-medium mt-3 text-text-dark dark:text-text-light">Photo Gallery</h2>
 </div>
-<div class="p-8 flex flex-col gap-4 flex-1">
-<div class="flex items-center gap-2 text-primary">
-<span class="material-symbols-outlined">church</span>
+<div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+<div class="gallery-item group relative overflow-hidden rounded-xl bg-gray-200">
+<a class="block w-full h-full" href="#img1">
+<img alt="Quinceañera Portrait" class="w-full h-auto transform transition-transform duration-700 group-hover:scale-110" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCl_k61kARA7Va1KG75wXEayxiiDmVI9rY0bIQmnI53r5uuDEY2PTOdjPaiEXhrrOewF7ZE7hZ0XU7C2Tvs0ezviKLGhAWbqOtg4U8BbapO375IuVwHq5iMI5FlldE6osvXO-ApzbJIgM5iH7gqAyk1hfgFlz2yCce5o73D2hbyinX8zRWbOcpRkUiezmM-LH1Is43chWwuedOf0lQRvgzdmNdcq6z4qHOHKSXfdIMx6USdzMoCzn9eqTiz73AFHD2xTU5FuHTHqsg"/>
+<div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<span class="text-white font-serif text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Portraits</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+<span class="material-symbols-outlined text-white">open_in_full</span>
+</div>
+</a>
+</div>
+<div class="gallery-item group relative overflow-hidden rounded-xl bg-gray-200">
+<a class="block w-full h-full" href="#img2">
+<img alt="Details" class="w-full h-auto transform transition-transform duration-700 group-hover:scale-110" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApPVR7L25r5_YMNrJua3iQsp2cBQJ3kYjBN6Az6QCvoM5O1SKMNkyYtdFtMpYHs5bDyCn8JbldbnLM5bKWrr9pBliSU9TDMarRjfi2YL5qRFncv9FCJ_YWuQUcIKzrTmlG2C_-5zzCaiP4jdcrShRf9TlQyjHDekTazNqqXCDWl23iKds0XCWTI4M-w39oaHxcdEPMmzYHp1O1mN9Q8SGr7W-_oHDa_cOKOYVeYj2LuwLunEhPxtRsIFAPsJ8JBuEB-pAVQMr6nm30"/>
+<div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<span class="text-white font-serif text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Details</span>
+</div>
+</a>
+</div>
+<div class="gallery-item group relative overflow-hidden rounded-xl bg-gray-200">
+<a class="block w-full h-full" href="#img3">
+<img alt="Celebration" class="w-full h-auto transform transition-transform duration-700 group-hover:scale-110" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5Xqyc5Y-Fcr_ZsHJ6nPF60-ATFzyzCIG-VV08vNU5Z3XTDh1X45duxJ42GxZcshGjZ_bhO9FfImty84wzm6QiO_49hz0DzFK7mw61T1xbLofRLk_2uAtzEZxW88r9T5GsJmLpHuY5EgD1KbRmixCBD0sVJn3YR20shLiKgzfw8rhX1FhI6X3luaa7PMCapWDnoM8JOtSNHGbBrrMZMf9n3JgKNtLu00CERTCFd_11GU-IIZfxBtexUOqdRpe_c9gY-bN4xFSjy6f5"/>
+<div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<span class="text-white font-serif text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Celebration</span>
+</div>
+</a>
+</div>
+<div class="gallery-item group relative overflow-hidden rounded-xl bg-gray-200">
+<a class="block w-full h-full" href="#img4">
+<img alt="Dress" class="w-full h-auto transform transition-transform duration-700 group-hover:scale-110" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzoX_VTf41saZeFiqLaGJNgSggQHgCi2vZTIdlNrbmSq2BuzrPinXSBQbq6_xG32cHOnTcsGgQNPGzJK_DrvHIe6xJ3rlaKgxsYfHTIFKLocZp4Kjax4lEGYGKB7Ni-qgCo9Au8i7wFhHpi1q6HcH1XGfSQbgtQKCxnObXqTwm-S3WgudeCfca_BlBVzvgGK-bT9TSQRgD7mfRizji_Wnt8ptHLH4-L93Wb8AhTkg5ttBPOQCD3Zn0KZcRQb4cjWDp1wIQJyqbshKx"/>
+<div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<span class="text-white font-serif text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">The Dress</span>
+</div>
+</a>
+</div>
+<div class="gallery-item group relative overflow-hidden rounded-xl bg-gray-200">
+<a class="block w-full h-full" href="#img5">
+<img alt="Flowers" class="w-full h-auto transform transition-transform duration-700 group-hover:scale-110" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXUKH9FL0idb5RcfsaVp9pRHl5nCu4q8ZQxUf2RwsXF5M2o8WkX7smgNcVECiSlPp50LlInoqO2OZytPY39DtimTrQ_Ktqa2hKYYylZo0WXC4fJ97lu-GeXp_b_qjfzQw2pF1g9a7eSANHqlqUkszkNilxldoFx49tke6l66Mbkq0PjiP0rIKi6MCGL-zSyqeErduaaK8gBtqQk_RXeG3ErH6IXFh9NNSVWcnos4CEwJxsun19hgSmyMsMt0NyQWMnM9Ue7tS8iOyD"/>
+<div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<span class="text-white font-serif text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Flowers</span>
+</div>
+</a>
+</div>
+<div class="gallery-item group relative overflow-hidden rounded-xl bg-gray-200">
+<a class="block w-full h-full" href="#img6">
+<img alt="Moments" class="w-full h-auto transform transition-transform duration-700 group-hover:scale-110" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWLXtmdykWQXX5oLyt637zeAsjgPhj8V-ORX9iouURVjJhV_7eP-DDJKckEzo7gh7wQ6ioJWuw6Uv7UR3dbfYo1C8U3qrDaAh2jqXT8O0RWSL6rI1Bgf-xTHmTRJVTyfPMq0yXUKwelrUO4HZxtjy5VuXHnhwICadCTRKSoVvzBIHw9JFa237pdrx_Js-HslPZkJXJ_0aL0lrLWbw5yuXBsQ04lYM180hGNontuV7QZy2U6JW0EyZ8nRZ1S_xm5fEDBVWhjxrWDCmR"/>
+<div class="gallery-overlay absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<span class="text-white font-serif text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Moments</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-4 bg-white dark:bg-background-dark">
+<div class="max-w-6xl mx-auto">
+<h2 class="text-center text-4xl font-serif font-medium mb-16 text-text-dark dark:text-text-light">The Celebration</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<div class="group flex flex-col rounded-[2rem] overflow-hidden bg-background-light dark:bg-[#322523] shadow-lg hover:shadow-2xl transition-all duration-500 border border-primary/10 hover:-translate-y-2">
+<div class="h-64 bg-cover bg-center relative overflow-hidden" data-alt="Cathedral interior" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCicxJdkUxvchr75j0A-pbmu3WbuYul2-BTEV4IQY56GizIP4M_LKyL38JywWD-jO0WB-8TDRTQd90UDM5WEU3ZOO-cSg5xD_W_TcKvMKx0UrfiooGcc5hvP5viBcJTkVw5rzraCXU5fpKrSy9C4tw3nxOAz2J6IZQp58eg8ahx8WHc2j0g2NKXNoE6SlRqVkBtqEh4lTy3rP8Xoq2fHf4PoTT9C2H9V-ICFqzKcifAYPkAe4m3xFneV3VFCWJMdDR7hFYlcQU-klu5");'>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-6 flex items-center gap-2 text-white/90">
+<span class="material-symbols-outlined text-primary">church</span>
 <span class="font-bold uppercase tracking-wider text-sm">Ceremony</span>
 </div>
-<h3 class="text-2xl font-bold text-[#1b0d17] dark:text-white">San Patricio Cathedral</h3>
-<div class="flex flex-col gap-2 text-gray-600 dark:text-gray-300 mt-2">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-gray-400 text-xl">schedule</span>
-<span>5:00 PM</span>
 </div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-gray-400 text-xl">location_on</span>
-<span>123 Main St, Springfield</span>
+<div class="p-8 md:p-10 flex flex-col gap-6 flex-1">
+<h3 class="text-3xl font-serif text-text-dark dark:text-text-light">San Patricio Cathedral</h3>
+<div class="flex flex-col gap-4 text-text-dark/80 dark:text-text-light/80 mt-2">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-secondary/50 dark:bg-white/5 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl">schedule</span>
 </div>
-</div>
-<button class="mt-auto w-full py-3 rounded-lg border border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-lg">map</span>
-                                View Map
-                            </button>
+<div>
+<p class="text-xs font-bold uppercase text-primary/80 tracking-wide">Time</p>
+<p class="font-medium">5:00 PM</p>
 </div>
 </div>
-<!-- Reception Card -->
-<div class="group flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-[#2a1424] shadow-lg hover:shadow-xl transition-all duration-300 border border-transparent hover:border-primary/20">
-<div class="h-48 bg-cover bg-center relative" data-alt="Elegant banquet hall setup with round tables and pink floral centerpieces" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA02y3OJanZEZTY2hOEINovRqNxKIQ8d01ClsYu_yR9QBWSbYLvgyj9zZ58QVm9bRE_y_10f-wZqfpCv9WeaJQljXcIRrSireoFc7vcDC9yY5YuNf3KJraPkcjLZviGCKNpPo2-eNUuDieOtgCQbQfD_4C2cJXjOeXDVvC5hApcgwfoYOeP3ti7GyRbz9_l2vtDnOiln9zzGLJPftJ8dedz4Zyq9R9dNFWxz8Vyn0hCwZhMg0rG-SDY7BP8KMAyi7DhE665o6x2EEE5");'>
-<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-secondary/50 dark:bg-white/5 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl">location_on</span>
 </div>
-<div class="p-8 flex flex-col gap-4 flex-1">
-<div class="flex items-center gap-2 text-primary">
-<span class="material-symbols-outlined">celebration</span>
+<div>
+<p class="text-xs font-bold uppercase text-primary/80 tracking-wide">Location</p>
+<p class="font-medium">123 Main St, Springfield</p>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-4 rounded-xl border-2 border-primary/20 bg-transparent text-primary font-bold hover:bg-primary hover:border-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group/btn">
+<span class="material-symbols-outlined text-lg group-hover/btn:animate-bounce">map</span>
+                            Get Directions
+                        </button>
+</div>
+</div>
+<div class="group flex flex-col rounded-[2rem] overflow-hidden bg-background-light dark:bg-[#322523] shadow-lg hover:shadow-2xl transition-all duration-500 border border-primary/10 hover:-translate-y-2">
+<div class="h-64 bg-cover bg-center relative overflow-hidden" data-alt="Banquet hall" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA02y3OJanZEZTY2hOEINovRqNxKIQ8d01ClsYu_yR9QBWSbYLvgyj9zZ58QVm9bRE_y_10f-wZqfpCv9WeaJQljXcIRrSireoFc7vcDC9yY5YuNf3KJraPkcjLZviGCKNpPo2-eNUuDieOtgCQbQfD_4C2cJXjOeXDVvC5hApcgwfoYOeP3ti7GyRbz9_l2vtDnOiln9zzGLJPftJ8dedz4Zyq9R9dNFWxz8Vyn0hCwZhMg0rG-SDY7BP8KMAyi7DhE665o6x2EEE5");'>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-6 flex items-center gap-2 text-white/90">
+<span class="material-symbols-outlined text-primary">wine_bar</span>
 <span class="font-bold uppercase tracking-wider text-sm">Reception</span>
 </div>
-<h3 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Grand Palace Hall</h3>
-<div class="flex flex-col gap-2 text-gray-600 dark:text-gray-300 mt-2">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-gray-400 text-xl">schedule</span>
-<span>7:00 PM - 2:00 AM</span>
 </div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-gray-400 text-xl">location_on</span>
-<span>456 Grand Ave, Springfield</span>
+<div class="p-8 md:p-10 flex flex-col gap-6 flex-1">
+<h3 class="text-3xl font-serif text-text-dark dark:text-text-light">Grand Palace Hall</h3>
+<div class="flex flex-col gap-4 text-text-dark/80 dark:text-text-light/80 mt-2">
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-secondary/50 dark:bg-white/5 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl">schedule</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase text-primary/80 tracking-wide">Time</p>
+<p class="font-medium">7:00 PM - 2:00 AM</p>
 </div>
 </div>
-<button class="mt-auto w-full py-3 rounded-lg border border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-lg">map</span>
-                                View Map
-                            </button>
+<div class="flex items-center gap-4">
+<div class="size-10 rounded-full bg-secondary/50 dark:bg-white/5 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl">location_on</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase text-primary/80 tracking-wide">Location</p>
+<p class="font-medium">456 Grand Ave, Springfield</p>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-4 rounded-xl border-2 border-primary/20 bg-transparent text-primary font-bold hover:bg-primary hover:border-primary hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group/btn">
+<span class="material-symbols-outlined text-lg group-hover/btn:animate-bounce">map</span>
+                            Get Directions
+                        </button>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Itinerary Timeline -->
-<section class="py-16 px-4 bg-white dark:bg-[#2a1424]">
+<section class="py-20 px-4 bg-secondary/10 dark:bg-background-dark border-t border-primary/5">
 <div class="max-w-3xl mx-auto">
-<div class="text-center mb-12">
-<span class="text-primary text-sm font-bold uppercase tracking-widest">Agenda</span>
-<h2 class="text-3xl font-bold mt-2 text-[#1b0d17] dark:text-white">Itinerary</h2>
+<div class="text-center mb-16">
+<span class="text-primary text-xs font-bold uppercase tracking-[0.25em]">Agenda</span>
+<h2 class="text-4xl font-serif font-medium mt-3 text-text-dark dark:text-text-light">Evening Itinerary</h2>
 </div>
-<div class="relative pl-8 border-l-2 border-primary/20 ml-4 md:ml-auto md:w-2/3 space-y-12">
-<!-- Item 1 -->
-<div class="relative">
-<div class="absolute -left-[41px] top-0 size-5 rounded-full border-4 border-white dark:border-[#2a1424] bg-primary shadow-sm"></div>
-<div class="flex items-start gap-4">
-<div class="p-3 rounded-lg bg-background-light dark:bg-[#32182b]">
-<span class="material-symbols-outlined text-primary">church</span>
-</div>
-<div>
-<h4 class="text-xl font-bold text-[#1b0d17] dark:text-white">Religious Ceremony</h4>
-<p class="text-primary font-medium">5:00 PM</p>
-</div>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="relative">
-<div class="absolute -left-[41px] top-0 size-5 rounded-full border-4 border-white dark:border-[#2a1424] bg-primary shadow-sm"></div>
-<div class="flex items-start gap-4">
-<div class="p-3 rounded-lg bg-background-light dark:bg-[#32182b]">
-<span class="material-symbols-outlined text-primary">wine_bar</span>
+<div class="relative pl-8 border-l border-primary/30 ml-4 md:ml-auto md:w-3/4 space-y-12">
+<div class="relative group">
+<div class="absolute -left-[41px] top-1 size-5 rounded-full border-4 border-white dark:border-[#2a1f1d] bg-primary shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+<div class="flex items-start gap-6 group-hover:translate-x-2 transition-transform duration-300">
+<div class="p-3 rounded-full bg-white dark:bg-[#322523] shadow-sm text-primary">
+<span class="material-symbols-outlined">church</span>
 </div>
 <div>
-<h4 class="text-xl font-bold text-[#1b0d17] dark:text-white">Cocktail Hour</h4>
-<p class="text-primary font-medium">7:00 PM</p>
+<h4 class="text-xl font-bold text-text-dark dark:text-text-light">Religious Ceremony</h4>
+<p class="text-primary font-medium mt-1 font-serif italic">5:00 PM</p>
 </div>
 </div>
 </div>
-<!-- Item 3 -->
-<div class="relative">
-<div class="absolute -left-[41px] top-0 size-5 rounded-full border-4 border-white dark:border-[#2a1424] bg-primary shadow-sm"></div>
-<div class="flex items-start gap-4">
-<div class="p-3 rounded-lg bg-background-light dark:bg-[#32182b]">
-<span class="material-symbols-outlined text-primary">piano</span>
-</div>
-<div>
-<h4 class="text-xl font-bold text-[#1b0d17] dark:text-white">The Waltz</h4>
-<p class="text-primary font-medium">8:00 PM</p>
-</div>
-</div>
-</div>
-<!-- Item 4 -->
-<div class="relative">
-<div class="absolute -left-[41px] top-0 size-5 rounded-full border-4 border-white dark:border-[#2a1424] bg-primary shadow-sm"></div>
-<div class="flex items-start gap-4">
-<div class="p-3 rounded-lg bg-background-light dark:bg-[#32182b]">
-<span class="material-symbols-outlined text-primary">restaurant</span>
+<div class="relative group">
+<div class="absolute -left-[41px] top-1 size-5 rounded-full border-4 border-white dark:border-[#2a1f1d] bg-primary shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+<div class="flex items-start gap-6 group-hover:translate-x-2 transition-transform duration-300">
+<div class="p-3 rounded-full bg-white dark:bg-[#322523] shadow-sm text-primary">
+<span class="material-symbols-outlined">local_bar</span>
 </div>
 <div>
-<h4 class="text-xl font-bold text-[#1b0d17] dark:text-white">Dinner &amp; Party</h4>
-<p class="text-primary font-medium">9:00 PM - 2:00 AM</p>
+<h4 class="text-xl font-bold text-text-dark dark:text-text-light">Cocktail Hour</h4>
+<p class="text-primary font-medium mt-1 font-serif italic">7:00 PM</p>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -left-[41px] top-1 size-5 rounded-full border-4 border-white dark:border-[#2a1f1d] bg-primary shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+<div class="flex items-start gap-6 group-hover:translate-x-2 transition-transform duration-300">
+<div class="p-3 rounded-full bg-white dark:bg-[#322523] shadow-sm text-primary">
+<span class="material-symbols-outlined">music_note</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-text-dark dark:text-text-light">The Waltz</h4>
+<p class="text-primary font-medium mt-1 font-serif italic">8:00 PM</p>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -left-[41px] top-1 size-5 rounded-full border-4 border-white dark:border-[#2a1f1d] bg-primary shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+<div class="flex items-start gap-6 group-hover:translate-x-2 transition-transform duration-300">
+<div class="p-3 rounded-full bg-white dark:bg-[#322523] shadow-sm text-primary">
+<span class="material-symbols-outlined">restaurant_menu</span>
+</div>
+<div>
+<h4 class="text-xl font-bold text-text-dark dark:text-text-light">Dinner &amp; Party</h4>
+<p class="text-primary font-medium mt-1 font-serif italic">9:00 PM - 2:00 AM</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Secondary Actions Grid -->
-<section class="py-16 px-4 bg-[#fcf8fa] dark:bg-background-dark border-y border-[#f3e7ef] dark:border-[#3a1d30]">
+<section class="py-24 px-4 bg-background-light dark:bg-background-dark">
 <div class="max-w-6xl mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<!-- Gift Registry -->
-<button class="flex flex-col items-center justify-center gap-4 p-8 rounded-2xl bg-white dark:bg-[#2a1424] shadow-sm hover:shadow-md transition-all group">
-<div class="size-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined text-3xl text-primary">card_giftcard</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<button class="flex flex-col items-center justify-center gap-6 p-10 rounded-[2rem] bg-white dark:bg-[#322523] shadow-lg hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 group border border-transparent hover:border-primary/20">
+<div class="size-20 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300 text-primary">
+<span class="material-symbols-outlined text-4xl">card_giftcard</span>
 </div>
-<div class="text-center">
-<h3 class="text-lg font-bold text-[#1b0d17] dark:text-white">Gift Registry</h3>
-<p class="text-sm text-gray-500 mt-1">Amazon &amp; Target</p>
+<div class="text-center space-y-2">
+<h3 class="text-xl font-serif font-bold text-text-dark dark:text-text-light">Gift Registry</h3>
+<p class="text-sm text-text-dark/60 dark:text-text-light/60">Amazon &amp; Target</p>
 </div>
+<span class="text-xs font-bold uppercase tracking-widest text-primary mt-2 border-b border-primary/30 pb-0.5">View List</span>
 </button>
-<!-- Dress Code -->
-<div class="flex flex-col items-center justify-center gap-4 p-8 rounded-2xl bg-white dark:bg-[#2a1424] shadow-sm hover:shadow-md transition-all group">
-<div class="size-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined text-3xl text-primary">checkroom</span>
+<div class="flex flex-col items-center justify-center gap-6 p-10 rounded-[2rem] bg-white dark:bg-[#322523] shadow-lg hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 group border border-transparent hover:border-primary/20">
+<div class="size-20 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300 text-primary">
+<span class="material-symbols-outlined text-4xl">checkroom</span>
 </div>
-<div class="text-center">
-<h3 class="text-lg font-bold text-[#1b0d17] dark:text-white">Dress Code</h3>
-<p class="text-sm text-gray-500 mt-1">Formal / Black Tie</p>
+<div class="text-center space-y-2">
+<h3 class="text-xl font-serif font-bold text-text-dark dark:text-text-light">Dress Code</h3>
+<p class="text-sm text-text-dark/60 dark:text-text-light/60">Formal / Black Tie</p>
 </div>
+<span class="text-xs font-bold uppercase tracking-widest text-primary mt-2 border-b border-primary/30 pb-0.5">Details</span>
 </div>
-<!-- Accommodations -->
-<button class="flex flex-col items-center justify-center gap-4 p-8 rounded-2xl bg-white dark:bg-[#2a1424] shadow-sm hover:shadow-md transition-all group">
-<div class="size-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-<span class="material-symbols-outlined text-3xl text-primary">hotel</span>
+<button class="flex flex-col items-center justify-center gap-6 p-10 rounded-[2rem] bg-white dark:bg-[#322523] shadow-lg hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 group border border-transparent hover:border-primary/20">
+<div class="size-20 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300 text-primary">
+<span class="material-symbols-outlined text-4xl">hotel</span>
 </div>
-<div class="text-center">
-<h3 class="text-lg font-bold text-[#1b0d17] dark:text-white">Accommodations</h3>
-<p class="text-sm text-gray-500 mt-1">Reserve your stay</p>
+<div class="text-center space-y-2">
+<h3 class="text-xl font-serif font-bold text-text-dark dark:text-text-light">Accommodations</h3>
+<p class="text-sm text-text-dark/60 dark:text-text-light/60">Reserve your stay</p>
 </div>
+<span class="text-xs font-bold uppercase tracking-widest text-primary mt-2 border-b border-primary/30 pb-0.5">Book Now</span>
 </button>
 </div>
 </div>
 </section>
-<!-- RSVP Form Section -->
-<section class="py-20 px-4 bg-white dark:bg-[#2a1424]" id="rsvp">
-<div class="max-w-2xl mx-auto rounded-3xl bg-background-light dark:bg-[#32182b] p-8 md:p-12 shadow-2xl border border-primary/10">
-<div class="text-center mb-8">
-<h2 class="text-3xl font-black text-[#1b0d17] dark:text-white">RSVP</h2>
-<p class="text-gray-600 dark:text-gray-300 mt-2">Please confirm your attendance by Oct 1st</p>
+<section class="py-24 px-4 bg-secondary/30 dark:bg-background-dark" id="rsvp">
+<div class="max-w-3xl mx-auto rounded-[2.5rem] bg-white dark:bg-[#322523] p-8 md:p-16 shadow-2xl border border-primary/10 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full"></div>
+<div class="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-tr-full"></div>
+<div class="text-center mb-10 relative z-10">
+<span class="material-symbols-outlined text-5xl text-primary mb-4">mail</span>
+<h2 class="text-4xl font-serif font-bold text-text-dark dark:text-text-light">RSVP</h2>
+<p class="text-text-dark/60 dark:text-text-light/60 mt-3 font-medium">Please confirm your attendance by Oct 1st</p>
 </div>
-<form class="flex flex-col gap-6">
-<div class="flex flex-col gap-2">
-<label class="text-sm font-bold text-[#1b0d17] dark:text-white ml-1">Full Name</label>
-<input class="w-full h-12 rounded-xl border border-[#e7cfdf] bg-white dark:bg-[#2a1424] dark:border-[#4a243d] px-4 text-[#1b0d17] dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Enter your name" type="text"/>
+<form class="flex flex-col gap-8 relative z-10">
+<div class="flex flex-col gap-2 group">
+<label class="text-xs font-bold uppercase tracking-wider text-text-dark dark:text-text-light ml-1 group-focus-within:text-primary transition-colors">Full Name</label>
+<input class="w-full h-14 rounded-xl border border-secondary bg-background-light dark:bg-[#2a1f1d] dark:border-white/10 px-5 text-text-dark dark:text-text-light focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-gray-400" placeholder="Enter your full name" type="text"/>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="flex flex-col gap-2">
-<label class="text-sm font-bold text-[#1b0d17] dark:text-white ml-1">Guests</label>
-<select class="w-full h-12 rounded-xl border border-[#e7cfdf] bg-white dark:bg-[#2a1424] dark:border-[#4a243d] px-4 text-[#1b0d17] dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2 group">
+<label class="text-xs font-bold uppercase tracking-wider text-text-dark dark:text-text-light ml-1 group-focus-within:text-primary transition-colors">Number of Guests</label>
+<div class="relative">
+<select class="w-full h-14 rounded-xl border border-secondary bg-background-light dark:bg-[#2a1f1d] dark:border-white/10 px-5 text-text-dark dark:text-text-light focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none">
 <option>1 Person</option>
 <option>2 People</option>
 <option>3 People</option>
 <option>4 People</option>
 </select>
+<span class="material-symbols-outlined absolute right-4 top-4 text-gray-400 pointer-events-none">expand_more</span>
 </div>
-<div class="flex flex-col gap-2">
-<label class="text-sm font-bold text-[#1b0d17] dark:text-white ml-1">Attendance</label>
-<select class="w-full h-12 rounded-xl border border-[#e7cfdf] bg-white dark:bg-[#2a1424] dark:border-[#4a243d] px-4 text-[#1b0d17] dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all">
+</div>
+<div class="flex flex-col gap-2 group">
+<label class="text-xs font-bold uppercase tracking-wider text-text-dark dark:text-text-light ml-1 group-focus-within:text-primary transition-colors">Attendance</label>
+<div class="relative">
+<select class="w-full h-14 rounded-xl border border-secondary bg-background-light dark:bg-[#2a1f1d] dark:border-white/10 px-5 text-text-dark dark:text-text-light focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none">
 <option>Joyfully Accepts</option>
 <option>Regretfully Declines</option>
 </select>
+<span class="material-symbols-outlined absolute right-4 top-4 text-gray-400 pointer-events-none">expand_more</span>
 </div>
 </div>
-<div class="flex flex-col gap-2">
-<label class="text-sm font-bold text-[#1b0d17] dark:text-white ml-1">Message or Dietary Restrictions</label>
-<textarea class="w-full h-24 rounded-xl border border-[#e7cfdf] bg-white dark:bg-[#2a1424] dark:border-[#4a243d] p-4 text-[#1b0d17] dark:text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none" placeholder="Let us know..."></textarea>
 </div>
-<button class="mt-4 w-full h-14 rounded-xl bg-primary text-white text-lg font-bold shadow-lg hover:bg-primary/90 hover:scale-[1.01] transition-all" type="button">
-                        Confirm Attendance
-                    </button>
+<div class="flex flex-col gap-2 group">
+<label class="text-xs font-bold uppercase tracking-wider text-text-dark dark:text-text-light ml-1 group-focus-within:text-primary transition-colors">Message or Dietary Restrictions</label>
+<textarea class="w-full h-32 rounded-xl border border-secondary bg-background-light dark:bg-[#2a1f1d] dark:border-white/10 p-5 text-text-dark dark:text-text-light focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none placeholder:text-gray-400" placeholder="Let us know..."></textarea>
+</div>
+<button class="mt-4 w-full h-16 rounded-xl bg-primary text-white text-lg font-bold shadow-xl shadow-primary/20 hover:bg-primary-hover hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3" type="button">
+<span>Confirm Attendance</span>
+<span class="material-symbols-outlined">send</span>
+</button>
 </form>
 </div>
 </section>
-<!-- Footer -->
-<footer class="py-12 bg-[#22101c] text-white text-center">
-<div class="flex flex-col items-center gap-6 px-4">
-<div class="size-16 flex items-center justify-center rounded-full bg-white/10 text-primary mb-2">
-<span class="material-symbols-outlined text-3xl">favorite</span>
+<footer class="py-16 bg-[#251b19] text-white text-center border-t border-white/5">
+<div class="flex flex-col items-center gap-8 px-4 max-w-4xl mx-auto">
+<div class="size-20 flex items-center justify-center rounded-full bg-gradient-to-br from-primary to-[#a66d66] text-white shadow-lg mb-2 animate-fade-in">
+<span class="material-symbols-outlined text-4xl">favorite</span>
 </div>
-<h3 class="text-2xl font-display font-bold">Sofia's Quinceañera</h3>
-<p class="text-white/60 max-w-md text-sm">
-                    Thank you for being part of this beautiful moment in my life. I can't wait to celebrate with you!
-                </p>
-<div class="w-24 h-px bg-white/20 my-2"></div>
-<p class="text-xs text-white/40">© 2024 Sofia's XV. Designed with love.</p>
+<h3 class="text-3xl font-serif font-bold">Sofia's Quinceañera</h3>
+<p class="text-white/60 max-w-lg text-base leading-relaxed font-light">
+                Thank you for being part of this beautiful moment in my life. I can't wait to celebrate with you!
+            </p>
+<div class="flex gap-4 mt-4">
+<a class="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors text-white/80 hover:text-white" href="#">
+<span class="sr-only">Instagram</span>
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+<div class="w-full h-px bg-white/10 my-4"></div>
+<p class="text-xs text-white/30 tracking-widest uppercase">© 2024 Sofia's XV. Made with love.</p>
 </div>
 </footer>
 </div>
