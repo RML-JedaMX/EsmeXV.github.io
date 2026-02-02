@@ -1,11 +1,12 @@
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Los XV años de Esmeralda - Una Historia Guiada</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>Los XV de Esmeralda - Una Historia Guiada</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -23,7 +24,7 @@
             },
         }
     </script>
-<style type="text/tailwindcss">
+        <style type="text/tailwindcss">
         @layer base {
             html {
                 scroll-behavior: smooth;
@@ -131,432 +132,387 @@
         .animate-player-glow { animation: player-glow 3s infinite; }
         .popup-content { animation: popup-enter 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
     </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark text-[#1b0d17] dark:text-white overflow-hidden">
-<div class="fixed inset-0 z-[100] flex items-center justify-center transition-all duration-1000" id="entry-overlay">
-<div class="absolute inset-0 bg-[#22101c]/40 backdrop-blur-xl"></div>
-<div class="popup-content relative w-[90%] max-w-lg overflow-hidden rounded-[2.5rem] bg-white/10 p-1 shadow-2xl border border-white/20">
-<div class="relative flex flex-col items-center justify-center overflow-hidden rounded-[2.3rem] bg-[#22101c]/60 px-6 py-12 text-center md:px-12 md:py-16">
-<div class="absolute inset-0 z-0 bg-cover bg-center opacity-30 mix-blend-overlay transition-transform duration-[20s] hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsxg0R9wQwwb1z8DIgwyeLv5Wcg3B9E4Ha6WHQoML6wq_68-Zgbzk-An0xYu5yO807wyACjNuKMkFX97GWvZO5K-8rN7NnjVLG7ZhixAvrzIcIMXQ5L7o-wdDzdB9D-ELdYYDdPq4UZv-RVNmyQolDPZzCHi7Vl2L4qyWdQ9IgL6CZTEWTJuPreXIxKoNSH6m6xobGx9zjohAWZSy61aF76otnu4KvoDtBWKYPj6an9fU35uKOjVIvbJ6utFTuDS9X9GbW_781jAGO");'></div>
-<div class="relative z-10 flex flex-col items-center gap-6">
-<span class="material-symbols-outlined text-6xl text-gold-accent animate-pulse">stars</span>
-<div class="space-y-2">
-<p class="text-sm font-bold uppercase tracking-[0.3em] text-primary/80">Bienvenido a</p>
-<h1 class="font-display text-5xl font-black tracking-tighter text-white md:text-6xl drop-shadow-lg">
-                        Mis <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 to-primary font-serif italic">XV Años</span>
-</h1>
-</div>
-<p class="max-w-xs font-serif text-lg italic leading-relaxed text-white/90">
-                    "Hay momentos que se atesoran en el corazón para siempre..."
-                </p>
-<div class="flex flex-col items-center gap-2">
-<button class="group relative mt-4 flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-primary/80 to-primary px-8 py-4 text-sm font-bold uppercase tracking-widest text-white shadow-[0_0_30px_rgba(240,66,182,0.4)] transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(240,66,182,0.6)]" id="enter-btn">
-<span class="relative z-10">Entrar a la Invitación</span>
-<span class="material-symbols-outlined relative z-10 transition-transform group-hover:translate-x-1">arrow_forward</span>
-<div class="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-500 group-hover:translate-x-0"></div>
-</button>
-<p class="text-[10px] uppercase tracking-wide text-white/60 flex items-center gap-1.5 animate-pulse">
-<span class="material-symbols-outlined text-xs">music_note</span>
-                        La música comenzará al entrar
-                    </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="fixed inset-0 pointer-events-none z-50 overflow-hidden" id="petal-container"></div>
-<div class="fixed top-0 z-50 w-full bg-[#fcf8fa]/80 dark:bg-[#22101c]/80 backdrop-blur-md border-b border-[#f3e7ef] dark:border-[#3a1d30]">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<header class="flex flex-col items-center justify-center py-3 gap-3">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-2xl">auto_awesome</span>
-<h2 class="text-xl font-bold tracking-tighter">Mis XV Años - Esmeralda</h2>
-</div>
-<div class="flex flex-wrap justify-center items-center gap-6 w-full">
-<div class="flex gap-4 text-center">
-<div class="flex flex-col">
-<span class="text-primary font-bold" id="days">--</span>
-<span class="text-[9px] uppercase opacity-60">Días</span>
-</div>
-<div class="flex flex-col">
-<span class="text-primary font-bold" id="hours">--</span>
-<span class="text-[9px] uppercase opacity-60">Hrs</span>
-</div>
-<div class="flex flex-col">
-<span class="text-primary font-bold" id="minutes">--</span>
-<span class="text-[9px] uppercase opacity-60">Min</span>
-</div>
-</div>
-<div class="hidden sm:block h-8 w-px bg-primary/20"></div>
-<button class="animate-player-glow relative flex items-center gap-3 px-5 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/40 text-primary text-xs font-bold shadow-lg hover:bg-white/20 transition-all overflow-hidden group" id="music-toggle-btn">
-<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div class="flex items-center justify-center size-6 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors" id="player-icon-container">
-<span class="material-symbols-outlined text-sm" id="player-icon">music_note</span>
-<div class="hidden h-3 w-3 items-end justify-center gap-[1px]" id="equalizer-container">
-<div class="equalizer-bar"></div>
-<div class="equalizer-bar"></div>
-<div class="equalizer-bar"></div>
-<div class="equalizer-bar"></div>
-</div>
-</div>
-<div class="flex flex-col items-start leading-none">
-<span class="uppercase tracking-widest text-[10px] opacity-70" id="player-status">Pausado</span>
-<span class="font-bold">Vals de Ensueño</span>
-</div>
-</button>
-</div>
-</header>
-</div>
-</div>
-<audio id="bg-music" loop="" preload="auto">
-<source src="https://assets.mixkit.co/music/preview/mixkit-wedding-and-romantic-piano-solo-288.mp3" type="audio/mpeg"/>
-    Tu navegador no soporta el elemento de audio.
-</audio>
-<nav class="fixed left-8 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-8">
-<a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#welcome">
-<div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div>
-<span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Intro</span>
-</a>
-<a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#about">
-<div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div>
-<span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Sobre Esmeralda</span>
-</a>
-<a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#celebration">
-<div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div>
-<span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">La Celebración</span>
-</a>
-<a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#itinerary">
-<div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div>
-<span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Itinerario</span>
-</a>
-<a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#gallery">
-<div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div>
-<span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Galería</span>
-</a>
-<a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#dresscode">
-<div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div>
-<span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Vestimenta</span>
-</a>
-<a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#rsvp">
-<div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div>
-<span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Confirmación</span>
-</a>
-</nav>
-<main class="w-full pt-28">
-<section class="section-container relative !p-0" id="welcome">
-<div class="absolute inset-0 z-0 bg-cover bg-center" style='background-image: linear-gradient(to bottom, rgba(34, 16, 28, 0.4), rgba(34, 16, 28, 0.7)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsxg0R9wQwwb1z8DIgwyeLv5Wcg3B9E4Ha6WHQoML6wq_68-Zgbzk-An0xYu5yO807wyACjNuKMkFX97GWvZO5K-8rN7NnjVLG7ZhixAvrzIcIMXQ5L7o-wdDzdB9D-ELdYYDdPq4UZv-RVNmyQolDPZzCHi7Vl2L4qyWdQ9IgL6CZTEWTJuPreXIxKoNSH6m6xobGx9zjohAWZSy61aF76otnu4KvoDtBWKYPj6an9fU35uKOjVIvbJ6utFTuDS9X9GbW_781jAGO");'></div>
-<div class="relative z-10 text-center text-white px-4 flex flex-col items-center gap-6 max-w-4xl reveal-element">
-<span class="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-xs font-bold tracking-[0.2em] uppercase border border-white/20">
-                Estás Invitado • 07 Mar, 2026
-            </span>
-<h1 class="text-6xl md:text-8xl font-display font-black leading-none tracking-tighter">
-                Mis XV Años <br/>
-<span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 to-pink-400 font-serif italic">Esmeralda</span>
-</h1>
-<p class="text-xl md:text-2xl font-light italic text-white/90 max-w-2xl leading-relaxed">
-                "Hoy comienza un hermoso viaje... Agradezco a Dios por el regalo de la vida y a mi familia por su amor."
-            </p>
-<a class="mt-8 flex items-center gap-2 group" href="#about">
-<span class="text-sm font-bold uppercase tracking-[0.3em]">Comenzar la Historia</span>
-<span class="material-symbols-outlined transition-transform group-hover:translate-y-1">expand_more</span>
-</a>
-</div>
-</section>
-<section class="section-container bg-white dark:bg-[#2a1424]" id="about">
-<div class="max-w-5xl w-full flex flex-col items-center text-center gap-12 reveal-element">
-<div class="flex flex-col items-center gap-3">
-<span class="material-symbols-outlined text-5xl text-gold-accent">stars</span>
-<h2 class="text-4xl md:text-5xl font-black tracking-tight text-[#1b0d17] dark:text-white">Sobre Esmeralda</h2>
-<div class="h-1 w-20 bg-primary/20 rounded-full mt-2"></div>
-</div>
-<p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
-                En estos quince años, he crecido rodeada de amor y sueños. Hoy quiero celebrar la mujer en la que me estoy convirtiendo con aquellos que han guiado mis pasos.
-            </p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-<div class="p-8 rounded-2xl border border-primary/10 bg-background-light dark:bg-[#32182b] shadow-sm transform transition-all hover:scale-[1.02]">
-<span class="material-symbols-outlined text-3xl text-primary mb-4">family_restroom</span>
-<p class="text-primary text-xs font-black uppercase tracking-widest mb-2">Mis Amados Padres</p>
-<p class="text-2xl font-serif text-[#1b0d17] dark:text-white">Juan y María Pérez</p>
-</div>
-<div class="p-8 rounded-2xl border border-primary/10 bg-background-light dark:bg-[#32182b] shadow-sm transform transition-all hover:scale-[1.02]">
-<span class="material-symbols-outlined text-3xl text-primary mb-4">church</span>
-<p class="text-primary text-xs font-black uppercase tracking-widest mb-2">Mis Padrinos de Honor</p>
-<p class="text-2xl font-serif text-[#1b0d17] dark:text-white">Carlos y Ana López</p>
-</div>
-</div>
-<a class="flex items-center gap-2 group mt-4" href="#celebration">
-<span class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Descubre la Celebración</span>
-<span class="material-symbols-outlined text-primary transition-transform group-hover:translate-y-1">expand_more</span>
-</a>
-</div>
-</section>
-<section class="section-container bg-[#fcf8fa] dark:bg-background-dark" id="celebration">
-<div class="max-w-6xl w-full reveal-element">
-<div class="text-center mb-16">
-<h2 class="text-4xl md:text-5xl font-black mb-4 text-[#1b0d17] dark:text-white">La Celebración</h2>
-<p class="text-gray-500 uppercase tracking-[0.2em] text-sm">Dos lugares, un día inolvidable</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-<div class="group rounded-3xl overflow-hidden bg-white dark:bg-[#2a1424] shadow-2xl border border-transparent hover:border-primary/20 transition-all flex flex-col">
-<div class="h-64 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCicxJdkUxvchr75j0A-pbmu3WbuYul2-BTEV4IQY56GizIP4M_LKyL38JywWD-jO0WB-8TDRTQd90UDM5WEU3ZOO-cSg5xD_W_TcKvMKx0UrfiooGcc5hvP5viBcJTkVw5rzraCXU5fpKrSy9C4tw3nxOAz2J6IZQp58eg8ahx8WHc2j0g2NKXNoE6SlRqVkBtqEh4lTy3rP8Xoq2fHf4PoTT9C2H9V-ICFqzKcifAYPkAe4m3xFneV3VFCWJMdDR7hFYlcQU-klu5");'></div>
-<div class="p-10 flex flex-col flex-1">
-<div class="flex items-center gap-3 text-primary mb-4">
-<span class="material-symbols-outlined">church</span>
-<span class="font-black uppercase tracking-widest text-xs">Ceremonia Religiosa</span>
-</div>
-<h3 class="text-3xl font-bold mb-4 text-[#1b0d17] dark:text-white leading-tight">Parroquia de Cristo Rey</h3>
-<div class="space-y-3 mb-8 text-gray-600 dark:text-gray-300">
-<div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary/50">schedule</span><span class="text-lg">1:00 PM Puntual</span></div>
-<div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary/50">location_on</span><span class="text-lg">Zona Centro, Ciudad</span></div>
-</div>
-<a class="mt-auto w-full py-4 rounded-xl bg-primary/5 border border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2" href="https://www.google.com/maps/search/?api=1&amp;query=Parroquia+de+Cristo+Rey" target="_blank">
-<span class="material-symbols-outlined">map</span>
-                            Abrir en Google Maps
-                        </a>
-</div>
-</div>
-<div class="group rounded-3xl overflow-hidden bg-white dark:bg-[#2a1424] shadow-2xl border border-transparent hover:border-primary/20 transition-all flex flex-col">
-<div class="h-64 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA02y3OJanZEZTY2hOEINovRqNxKIQ8d01ClsYu_yR9QBWSbYLvgyj9zZ58QVm9bRE_y_10f-wZqfpCv9WeaJQljXcIRrSireoFc7vcDC9yY5YuNf3KJraPkcjLZviGCKNpPo2-eNUuDieOtgCQbQfD_4C2cJXjOeXDVvC5hApcgwfoYOeP3ti7GyRbz9_l2vtDnOiln9zzGLJPftJ8dedz4Zyq9R9dNFWxz8Vyn0hCwZhMg0rG-SDY7BP8KMAyi7DhE665o6x2EEE5");'></div>
-<div class="p-10 flex flex-col flex-1">
-<div class="flex items-center gap-3 text-primary mb-4">
-<span class="material-symbols-outlined">celebration</span>
-<span class="font-black uppercase tracking-widest text-xs">La Fiesta</span>
-</div>
-<h3 class="text-3xl font-bold mb-4 text-[#1b0d17] dark:text-white leading-tight">Salón Grand Palace</h3>
-<div class="space-y-3 mb-8 text-gray-600 dark:text-gray-300">
-<div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary/50">schedule</span><span class="text-lg">3:30 PM - 9:00 PM</span></div>
-<div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary/50">location_on</span><span class="text-lg">456 Grand Ave, Springfield</span></div>
-</div>
-<a class="mt-auto w-full py-4 rounded-xl bg-primary/5 border border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2" href="https://www.google.com/maps/search/?api=1&amp;query=Salon+Grand+Palace" target="_blank">
-<span class="material-symbols-outlined">map</span>
-                            Abrir en Google Maps
-                        </a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="section-container bg-white dark:bg-[#2a1424]" id="itinerary">
-<div class="max-w-4xl w-full flex flex-col items-center reveal-element">
-<div class="text-center mb-16">
-<span class="text-primary text-xs font-black uppercase tracking-[0.3em]">El Itinerario</span>
-<h2 class="text-4xl md:text-5xl font-black mt-4 text-[#1b0d17] dark:text-white">Nuestro Recorrido</h2>
-</div>
-<div class="relative w-full space-y-0">
-<div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent hidden md:block"></div>
-<div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 pb-16">
-<div class="md:w-1/2 md:text-right md:pr-12">
-<h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Ceremonia Religiosa</h4>
-<p class="text-primary font-black mt-1">1:00 PM</p>
-</div>
-<div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
-<span class="material-symbols-outlined text-xl animate-pulse-icon">church</span>
-</div>
-<div class="md:w-1/2 md:pl-12 hidden md:block">
-<p class="text-gray-500 text-sm">Acompáñanos en una hermosa misa en la Parroquia de Cristo Rey.</p>
-</div>
-</div>
-<div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 pb-16">
-<div class="md:w-1/2 md:text-right md:pr-12 hidden md:block">
-<p class="text-gray-500 text-sm">Una hora encantadora de aperitivos y bebidas mientras llegan los invitados.</p>
-</div>
-<div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
-<span class="material-symbols-outlined text-xl animate-tilt-icon">wine_bar</span>
-</div>
-<div class="md:w-1/2 md:pl-12">
-<h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Cóctel de Bienvenida</h4>
-<p class="text-primary font-black mt-1">3:30 PM</p>
-</div>
-</div>
-<div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 pb-16">
-<div class="md:w-1/2 md:text-right md:pr-12">
-<h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">El Vals</h4>
-<p class="text-primary font-black mt-1">4:30 PM</p>
-</div>
-<div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
-<span class="material-symbols-outlined text-xl animate-sway-icon">music_note</span>
-</div>
-<div class="md:w-1/2 md:pl-12 hidden md:block">
-<p class="text-gray-500 text-sm">La presentación tradicional y el primer baile con mi padre.</p>
-</div>
-</div>
-<div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
-<div class="md:w-1/2 md:text-right md:pr-12 hidden md:block">
-<p class="text-gray-500 text-sm">¡Sigue la cena, y luego bailamos toda la noche!</p>
-</div>
-<div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
-<span class="material-symbols-outlined text-xl animate-glow-icon">restaurant</span>
-</div>
-<div class="md:w-1/2 md:pl-12">
-<h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Cena y Baile</h4>
-<p class="text-primary font-black mt-1">5:30 PM - 10:00 PM</p>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-24">
-<div class="flex flex-col items-center p-6 rounded-2xl bg-[#fcf8fa] dark:bg-white/5 border border-primary/5">
-<span class="material-symbols-outlined text-primary mb-2">card_giftcard</span>
-<span class="text-sm font-bold">Mesa de Regalos</span>
-<span class="text-xs opacity-60">Amazon / Target</span>
-</div>
-<div class="flex flex-col items-center p-6 rounded-2xl bg-[#fcf8fa] dark:bg-white/5 border border-primary/5">
-<span class="material-symbols-outlined text-primary mb-2">hotel</span>
-<span class="text-sm font-bold">Hospedaje</span>
-<span class="text-xs opacity-60">Tarifas Especiales</span>
-</div>
-<div class="flex flex-col items-center p-6 rounded-2xl bg-[#fcf8fa] dark:bg-white/5 border border-primary/5">
-<span class="material-symbols-outlined text-primary mb-2">palette</span>
-<span class="text-sm font-bold">Paleta de Colores</span>
-<span class="text-xs opacity-60">Rosa &amp; Dorado</span>
-</div>
-</div>
-</div>
-</section>
-<section class="section-container bg-[#fcf8fa] dark:bg-background-dark" id="gallery">
-<div class="max-w-6xl w-full flex flex-col items-center reveal-element">
-<div class="text-center mb-16">
-<span class="material-symbols-outlined text-5xl text-gold-accent mb-2">photo_camera</span>
-<h2 class="text-4xl md:text-5xl font-black text-[#1b0d17] dark:text-white">Galería de Momentos</h2>
-<p class="text-gray-500 uppercase tracking-[0.2em] text-sm mt-4">Recuerdos Inolvidables</p>
-</div>
-<div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4 w-full px-4" id="gallery-grid">
-<div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-<img alt="Momentos 1" class="gallery-img w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsxg0R9wQwwb1z8DIgwyeLv5Wcg3B9E4Ha6WHQoML6wq_68-Zgbzk-An0xYu5yO807wyACjNuKMkFX97GWvZO5K-8rN7NnjVLG7ZhixAvrzIcIMXQ5L7o-wdDzdB9D-ELdYYDdPq4UZv-RVNmyQolDPZzCHi7Vl2L4qyWdQ9IgL6CZTEWTJuPreXIxKoNSH6m6xobGx9zjohAWZSy61aF76otnu4KvoDtBWKYPj6an9fU35uKOjVIvbJ6utFTuDS9X9GbW_781jAGO"/>
-</div>
-<div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-<img alt="Momentos 2" class="gallery-img w-full aspect-square object-cover transform transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCicxJdkUxvchr75j0A-pbmu3WbuYul2-BTEV4IQY56GizIP4M_LKyL38JywWD-jO0WB-8TDRTQd90UDM5WEU3ZOO-cSg5xD_W_TcKvMKx0UrfiooGcc5hvP5viBcJTkVw5rzraCXU5fpKrSy9C4tw3nxOAz2J6IZQp58eg8ahx8WHc2j0g2NKXNoE6SlRqVkBtqEh4lTy3rP8Xoq2fHf4PoTT9C2H9V-ICFqzKcifAYPkAe4m3xFneV3VFCWJMdDR7hFYlcQU-klu5"/>
-</div>
-<div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-<img alt="Momentos 3" class="gallery-img w-full h-64 object-cover transform transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA02y3OJanZEZTY2hOEINovRqNxKIQ8d01ClsYu_yR9QBWSbYLvgyj9zZ58QVm9bRE_y_10f-wZqfpCv9WeaJQljXcIRrSireoFc7vcDC9yY5YuNf3KJraPkcjLZviGCKNpPo2-eNUuDieOtgCQbQfD_4C2cJXjOeXDVvC5hApcgwfoYOeP3ti7GyRbz9_l2vtDnOiln9zzGLJPftJ8dedz4Zyq9R9dNFWxz8Vyn0hCwZhMg0rG-SDY7BP8KMAyi7DhE665o6x2EEE5"/>
-</div>
-<div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-<img alt="Momentos 4" class="gallery-img w-full h-96 object-cover object-left transform transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCicxJdkUxvchr75j0A-pbmu3WbuYul2-BTEV4IQY56GizIP4M_LKyL38JywWD-jO0WB-8TDRTQd90UDM5WEU3ZOO-cSg5xD_W_TcKvMKx0UrfiooGcc5hvP5viBcJTkVw5rzraCXU5fpKrSy9C4tw3nxOAz2J6IZQp58eg8ahx8WHc2j0g2NKXNoE6SlRqVkBtqEh4lTy3rP8Xoq2fHf4PoTT9C2H9V-ICFqzKcifAYPkAe4m3xFneV3VFCWJMdDR7hFYlcQU-klu5"/>
-</div>
-<div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-<img alt="Momentos 5" class="gallery-img w-full h-72 object-cover object-top transform transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsxg0R9wQwwb1z8DIgwyeLv5Wcg3B9E4Ha6WHQoML6wq_68-Zgbzk-An0xYu5yO807wyACjNuKMkFX97GWvZO5K-8rN7NnjVLG7ZhixAvrzIcIMXQ5L7o-wdDzdB9D-ELdYYDdPq4UZv-RVNmyQolDPZzCHi7Vl2L4qyWdQ9IgL6CZTEWTJuPreXIxKoNSH6m6xobGx9zjohAWZSy61aF76otnu4KvoDtBWKYPj6an9fU35uKOjVIvbJ6utFTuDS9X9GbW_781jAGO"/>
-</div>
-<div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
-<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
-<img alt="Momentos 6" class="gallery-img w-full aspect-square object-cover object-right transform transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA02y3OJanZEZTY2hOEINovRqNxKIQ8d01ClsYu_yR9QBWSbYLvgyj9zZ58QVm9bRE_y_10f-wZqfpCv9WeaJQljXcIRrSireoFc7vcDC9yY5YuNf3KJraPkcjLZviGCKNpPo2-eNUuDieOtgCQbQfD_4C2cJXjOeXDVvC5hApcgwfoYOeP3ti7GyRbz9_l2vtDnOiln9zzGLJPftJ8dedz4Zyq9R9dNFWxz8Vyn0hCwZhMg0rG-SDY7BP8KMAyi7DhE665o6x2EEE5"/>
-</div>
-</div>
-</div>
-</section>
-<section class="section-container bg-white dark:bg-[#2a1424]" id="dresscode">
-<div class="max-w-4xl w-full flex flex-col items-center reveal-element">
-<div class="text-center mb-16">
-<span class="material-symbols-outlined text-5xl text-gold-accent mb-4 animate-bounce-slow">checkroom</span>
-<h2 class="text-4xl md:text-5xl font-black text-[#1b0d17] dark:text-white">Código de Vestimenta</h2>
-<p class="text-primary text-sm font-bold uppercase tracking-[0.3em] mt-4">Elegancia Esmeralda</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full px-4">
-<div class="relative group p-8 rounded-[2rem] bg-[#fcf8fa] dark:bg-white/5 border border-primary/10 overflow-hidden text-center hover:border-gold-accent/50 transition-all duration-500">
-<div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div class="relative z-10 flex flex-col items-center">
-<div class="size-24 rounded-full bg-white dark:bg-[#22101c] border-2 border-gold-accent/30 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
-<span class="material-symbols-outlined text-5xl text-[#1b0d17] dark:text-white">man</span>
-</div>
-<h3 class="text-2xl font-bold font-display text-[#1b0d17] dark:text-white mb-2">Caballeros</h3>
-<p class="text-gold-accent font-black uppercase tracking-widest text-xs mb-4">Formal / Etiqueta</p>
-<p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                            Traje completo o smoking. La elegancia es la clave para acompañar esta noche especial.
-                        </p>
-</div>
-</div>
-<div class="relative group p-8 rounded-[2rem] bg-[#fcf8fa] dark:bg-white/5 border border-primary/10 overflow-hidden text-center hover:border-gold-accent/50 transition-all duration-500">
-<div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-<div class="relative z-10 flex flex-col items-center">
-<div class="size-24 rounded-full bg-white dark:bg-[#22101c] border-2 border-gold-accent/30 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
-<span class="material-symbols-outlined text-5xl text-[#1b0d17] dark:text-white">woman</span>
-</div>
-<h3 class="text-2xl font-bold font-display text-[#1b0d17] dark:text-white mb-2">Damas</h3>
-<p class="text-gold-accent font-black uppercase tracking-widest text-xs mb-4">Vestido Largo</p>
-<p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                            Vestido de noche largo y elegante. Brilla con nosotros en esta celebración única.
-                        </p>
-</div>
-</div>
-</div>
-<div class="mt-12 p-8 text-center max-w-2xl relative">
-<span class="material-symbols-outlined absolute top-0 left-0 text-4xl text-gold-accent/20 -translate-y-1/2 -translate-x-1/2">format_quote</span>
-<p class="text-xl md:text-2xl font-serif italic text-[#1b0d17]/80 dark:text-white/90">
-                    "Formal: Queremos verte brillar, por favor asiste con vestimenta formal."
-                </p>
-<span class="material-symbols-outlined absolute bottom-0 right-0 text-4xl text-gold-accent/20 translate-y-1/2 translate-x-1/2 transform rotate-180">format_quote</span>
-</div>
-</div>
-</section>
-<section class="section-container bg-[#22101c] text-white overflow-hidden relative" id="rsvp">
-<div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
-<div class="max-w-2xl w-full z-10 reveal-element">
-<div class="text-center mb-12">
-<div class="size-20 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
-<span class="material-symbols-outlined text-4xl text-primary">mail</span>
-</div>
-<h2 class="text-4xl md:text-5xl font-black mb-4">Capítulo Final: RSVP</h2>
-<p class="text-white/60">Sé parte de esta historia. Por favor confirma antes del 1 de febrero de 2026.</p>
-</div>
-<form class="bg-white/5 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col gap-6">
-<div class="flex flex-col gap-2">
-<label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">Nombre Completo</label>
-<input class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-white/20" id="rsvp-name" placeholder="ej. María González" type="text"/>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="flex flex-col gap-2">
-<label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">Número de Invitados</label>
-<select class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none" id="rsvp-guests">
-<option class="bg-[#22101c]" value="1">1 Invitado</option>
-<option class="bg-[#22101c]" value="2">2 Invitados</option>
-<option class="bg-[#22101c]" value="3">3 Invitados</option>
-<option class="bg-[#22101c]" value="4">4 Invitados</option>
-</select>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">¿Asistirás?</label>
-<select class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none" id="rsvp-attendance">
-<option class="bg-[#22101c]" value="Sí">Acepto con Gusto</option>
-<option class="bg-[#22101c]" value="No">Lamentablemente No Asistiré</option>
-</select>
-</div>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">Mensaje Especial o Restricciones</label>
-<textarea class="w-full h-32 rounded-2xl border-white/10 bg-white/5 p-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none placeholder:text-white/20" id="rsvp-message" placeholder="Notas opcionales..."></textarea>
-</div>
-<button class="mt-4 w-full h-16 rounded-2xl bg-primary text-white text-lg font-black shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all uppercase tracking-widest flex items-center justify-center gap-2" onclick="sendWhatsapp()" type="button">
-<span class="material-symbols-outlined">send</span>    
-                    Confirmar por WhatsApp
-                </button>
-</form>
-<footer class="mt-20 text-center pb-8">
-<p class="text-white/30 text-xs tracking-[0.2em] mb-4">CREADO CON AMOR PARA LOS XV DE ESMERALDA</p>
-<div class="flex justify-center gap-4 text-white/20">
-<span class="material-symbols-outlined text-sm">favorite</span>
-<span class="material-symbols-outlined text-sm">celebration</span>
-<span class="material-symbols-outlined text-sm">stars</span>
-</div>
-</footer>
-</div>
-</section>
-</main>
-<div class="fixed inset-0 z-[60] bg-black/95 hidden items-center justify-center p-4 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="lightbox">
-<button class="absolute top-4 right-4 z-[70] p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all transform hover:scale-110" id="lightbox-close">
-<span class="material-symbols-outlined text-3xl">close</span>
-</button>
-<button class="absolute left-4 top-1/2 -translate-y-1/2 z-[70] p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all transform hover:scale-110 group" id="lightbox-prev">
-<span class="material-symbols-outlined text-4xl group-hover:-translate-x-1 transition-transform">arrow_back_ios_new</span>
-</button>
-<img alt="Full screen" class="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl border-2 border-primary/20 scale-95 transition-transform duration-300" id="lightbox-img" src=""/>
-<button class="absolute right-4 top-1/2 -translate-y-1/2 z-[70] p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all transform hover:scale-110 group" id="lightbox-next">
-<span class="material-symbols-outlined text-4xl group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
-</button>
-</div>
-<script>
+    </head>
+    <body class="bg-background-light dark:bg-background-dark text-[#1b0d17] dark:text-white overflow-hidden">
+        <div class="fixed inset-0 z-[100] flex items-center justify-center transition-all duration-1000" id="entry-overlay">
+            <div class="absolute inset-0 bg-[#22101c]/40 backdrop-blur-xl"></div>
+            <div class="popup-content relative w-[90%] max-w-lg overflow-hidden rounded-[2.5rem] bg-white/10 p-1 shadow-2xl border border-white/20">
+                <div class="relative flex flex-col items-center justify-center overflow-hidden rounded-[2.3rem] bg-[#22101c]/60 px-6 py-12 text-center md:px-12 md:py-16">
+                    <div class="absolute inset-0 z-0 bg-cover bg-center opacity-30 mix-blend-overlay transition-transform duration-[20s] hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsxg0R9wQwwb1z8DIgwyeLv5Wcg3B9E4Ha6WHQoML6wq_68-Zgbzk-An0xYu5yO807wyACjNuKMkFX97GWvZO5K-8rN7NnjVLG7ZhixAvrzIcIMXQ5L7o-wdDzdB9D-ELdYYDdPq4UZv-RVNmyQolDPZzCHi7Vl2L4qyWdQ9IgL6CZTEWTJuPreXIxKoNSH6m6xobGx9zjohAWZSy61aF76otnu4KvoDtBWKYPj6an9fU35uKOjVIvbJ6utFTuDS9X9GbW_781jAGO");'></div>
+                    <div class="relative z-10 flex flex-col items-center gap-6">
+                        <span class="material-symbols-outlined text-6xl text-gold-accent animate-pulse">stars</span>
+                        <div class="space-y-2">
+                            <p class="text-sm font-bold uppercase tracking-[0.3em] text-primary/80">Bienvenidos</p>
+                            <h1 class="font-display text-5xl font-black tracking-tighter text-white md:text-6xl drop-shadow-lg">
+                        Mis <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 to-primary font-serif italic">XV Años</span></h1>
+                        </div>
+                        <p class="max-w-xs font-serif text-lg italic leading-relaxed text-white/90">
+                    "Hay momentos que se atesoran en el corazón para siempre..." </p>
+                        <div class="flex flex-col items-center gap-2">
+                            <button class="group relative mt-4 flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-primary/80 to-primary px-8 py-4 text-sm font-bold uppercase tracking-widest text-white shadow-[0_0_30px_rgba(240,66,182,0.4)] transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(240,66,182,0.6)]" id="enter-btn">
+                                <span class="relative z-10">Entrar a la Invitación</span>
+                                <span class="material-symbols-outlined relative z-10 transition-transform group-hover:translate-x-1">arrow_forward</span>
+                                <div class="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-500 group-hover:translate-x-0"></div>
+                            </button>
+                            <p class="text-[10px] uppercase tracking-wide text-white/60 flex items-center gap-1.5 animate-pulse"><span class="material-symbols-outlined text-xs">music_note</span>
+                        La música comenzará al entrar </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fixed inset-0 pointer-events-none z-50 overflow-hidden" id="petal-container"></div>
+        <div class="fixed top-0 z-50 w-full bg-[#fcf8fa]/80 dark:bg-[#22101c]/80 backdrop-blur-md border-b border-[#f3e7ef] dark:border-[#3a1d30]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <header class="flex flex-col items-center justify-center py-3 gap-3">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-2xl">auto_awesome</span>
+                        <h2 class="text-xl font-bold tracking-tighter">- Esmeralda -</h2>
+                    </div>
+                    <div class="flex flex-wrap justify-center items-center gap-6 w-full">
+                        <div class="flex gap-4 text-center">
+                            <div class="flex flex-col">
+                                <span class="text-primary font-bold" id="days">--</span>
+                                <span class="text-[9px] uppercase opacity-60">Días</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-primary font-bold" id="hours">--</span>
+                                <span class="text-[9px] uppercase opacity-60">Hrs</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-primary font-bold" id="minutes">--</span>
+                                <span class="text-[9px] uppercase opacity-60">Min</span>
+                            </div>
+                        </div>
+                        <div class="hidden sm:block h-8 w-px bg-primary/20"></div>
+                        <button class="animate-player-glow relative flex items-center gap-3 px-5 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/40 text-primary text-xs font-bold shadow-lg hover:bg-white/20 transition-all overflow-hidden group" id="music-toggle-btn">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="flex items-center justify-center size-6 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors" id="player-icon-container">
+                                <span class="material-symbols-outlined text-sm" id="player-icon">music_note</span>
+                                <div class="hidden h-3 w-3 items-end justify-center gap-[1px]" id="equalizer-container">
+                                    <div class="equalizer-bar"></div>
+                                    <div class="equalizer-bar"></div>
+                                    <div class="equalizer-bar"></div>
+                                    <div class="equalizer-bar"></div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-start leading-none">
+                                <span class="uppercase tracking-widest text-[10px] opacity-70" id="player-status">Pausado</span>
+                                <span class="font-bold">Vals de Ensueño</span>
+                            </div>
+                        </button>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <audio id="bg-music" loop="" preload="auto">
+            <source src="audio/entrada.mp3" type="audio/mpeg"/>
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        <nav class="fixed left-8 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-8">
+            <a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#welcome"><div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div><span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Intro</span></a>
+            <a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#about"><div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div><span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Sobre Esmeralda</span></a>
+            <a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#celebration"><div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div><span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">La Celebración</span></a>
+            <a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#itinerary"><div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div><span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Itinerario</span></a>
+            <a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#gallery"><div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div><span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Galería</span></a>
+            <a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#dresscode"><div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div><span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Vestimenta</span></a>
+            <a class="nav-link group flex items-center gap-4 transition-all hover:translate-x-1" href="#rsvp"><div class="nav-dot size-3 rounded-full border-2 border-primary/30 group-hover:border-primary transition-all"></div><span class="text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Confirmación</span></a>
+        </nav>
+        <main class="w-full pt-28">
+            <section class="section-container relative !p-0" id="welcome">
+                <div class="absolute inset-0 z-0 bg-cover bg-center" style='background-image: linear-gradient(to bottom, rgba(34, 16, 28, 0.4), rgba(34, 16, 28, 0.7)), url("img/portadax.png");'></div>
+                <div class="relative z-10 text-center text-white px-4 flex flex-col items-center gap-6 max-w-4xl reveal-element">
+                    <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-xs font-bold tracking-[0.2em] uppercase border border-white/20">
+                Estás Invitado • 07 Mar, 2026 </span>
+                    <h1 class="text-6xl md:text-8xl font-display font-black leading-none tracking-tighter">
+                Mis XV Años <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-200 to-pink-400 font-serif italic">Esmeralda</span></h1>
+                    <p class="text-xl md:text-2xl font-light italic text-white/90 max-w-2xl leading-relaxed">
+                "Hoy comienza un hermoso viaje... Agradezco a Dios por el regalo de la vida y a mi familia por su amor." </p>
+                    <a class="mt-8 flex items-center gap-2 group" href="#about"><span class="text-sm font-bold uppercase tracking-[0.3em]">Comenzar la Historia</span><span class="material-symbols-outlined transition-transform group-hover:translate-y-1">expand_more</span></a>
+                </div>
+            </section>
+            <section class="section-container bg-white dark:bg-[#2a1424]" id="about">
+                <div class="max-w-5xl w-full flex flex-col items-center text-center gap-12 reveal-element">
+                    <div class="flex flex-col items-center gap-3">
+                        <span class="material-symbols-outlined text-5xl text-gold-accent">stars</span>
+                        <h2 class="text-4xl md:text-5xl font-black tracking-tight text-[#1b0d17] dark:text-white">Sobre Esmeralda</h2>
+                        <div class="h-1 w-20 bg-primary/20 rounded-full mt-2"></div>
+                    </div>
+                    <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">
+                En estos quince años, he crecido rodeada de amor y sueños. Hoy quiero celebrar la mujer en la que me estoy convirtiendo con aquellos que han guiado mis pasos. </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                        <div class="p-8 rounded-2xl border border-primary/10 bg-background-light dark:bg-[#32182b] shadow-sm transform transition-all hover:scale-[1.02]">
+                            <span class="material-symbols-outlined text-3xl text-primary mb-4">family_restroom</span>
+                            <p class="text-primary text-xs font-black uppercase tracking-widest mb-2">Mis Amados Padres</p>
+                            <p class="text-2xl font-serif text-[#1b0d17] dark:text-white">Raúl y Elizabeth Gutiérrez</p>
+                        </div>
+                        <div class="p-8 rounded-2xl border border-primary/10 bg-background-light dark:bg-[#32182b] shadow-sm transform transition-all hover:scale-[1.02]">
+                            <span class="material-symbols-outlined text-3xl text-primary mb-4">church</span>
+                            <p class="text-primary text-xs font-black uppercase tracking-widest mb-2">Mis Padrinos de Honor</p>
+                            <p class="text-2xl font-serif text-[#1b0d17] dark:text-white">Carlos y Ana López</p>
+                        </div>
+                    </div>
+                    <a class="flex items-center gap-2 group mt-4" href="#celebration"><span class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Descubre la Celebración</span><span class="material-symbols-outlined text-primary transition-transform group-hover:translate-y-1">expand_more</span></a>
+                </div>
+            </section>
+            <section class="section-container bg-[#fcf8fa] dark:bg-background-dark" id="celebration">
+                <div class="max-w-6xl w-full reveal-element">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-black mb-4 text-[#1b0d17] dark:text-white">La Celebración</h2>
+                        <p class="text-gray-500 uppercase tracking-[0.2em] text-sm">Dos lugares, un día inolvidable</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div class="group rounded-3xl overflow-hidden bg-white dark:bg-[#2a1424] shadow-2xl border border-transparent hover:border-primary/20 transition-all flex flex-col">
+                            <div class="h-64 bg-cover bg-center" style='background-image: url("img/ceremonia02.png");'></div>
+                            <div class="p-10 flex flex-col flex-1">
+                                <div class="flex items-center gap-3 text-primary mb-4">
+                                    <span class="material-symbols-outlined">church</span>
+                                    <span class="font-black uppercase tracking-widest text-xs">Ceremonia Religiosa</span>
+                                </div>
+                                <h3 class="text-3xl font-bold mb-4 text-[#1b0d17] dark:text-white leading-tight">Parroquia de la Santísima Trinidad</h3>
+                                <div class="space-y-3 mb-8 text-gray-600 dark:text-gray-300">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-primary/50">schedule</span>
+                                        <span class="text-lg">1:00 PM Puntual</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-primary/50">location_on</span>
+                                        <span class="text-lg">Calle. Petr Tchaikovsky, Col. Jardines del Sur, Tulancingo, Hgo.</span>
+                                    </div>
+                                </div>
+                                <a class="mt-auto w-full py-4 rounded-xl bg-primary/5 border border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2" href="https://maps.app.goo.gl/y7m1EfmZEEuv4ybt5" target="_blank"><span class="material-symbols-outlined">map</span>
+                            Abrir en Google Maps </a>
+                            </div>
+                        </div>
+                        <div class="group rounded-3xl overflow-hidden bg-white dark:bg-[#2a1424] shadow-2xl border border-transparent hover:border-primary/20 transition-all flex flex-col">
+                            <div class="h-64 bg-cover bg-center" style='background-image: url("img/salon2.png");'></div>
+                            <div class="p-10 flex flex-col flex-1">
+                                <div class="flex items-center gap-3 text-primary mb-4">
+                                    <span class="material-symbols-outlined">celebration</span>
+                                    <span class="font-black uppercase tracking-widest text-xs">La Fiesta</span>
+                                </div>
+                                <h3 class="text-3xl font-bold mb-4 text-[#1b0d17] dark:text-white leading-tight">Salon Rancho La Palma</h3>
+                                <div class="space-y-3 mb-8 text-gray-600 dark:text-gray-300">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-primary/50">schedule</span>
+                                        <span class="text-lg">3:00 PM</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-primary/50">location_on</span>
+                                        <span class="text-lg">1ro de Abril Nte. S/N, Rancho la Palma, Santiago Tulantepec, Hgo.</span>
+                                    </div>
+                                </div>
+                                <a class="mt-auto w-full py-4 rounded-xl bg-primary/5 border border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2" href="https://maps.app.goo.gl/J47eUqsMsEu7WgGb7" target="_blank"><span class="material-symbols-outlined">map</span>
+                            Abrir en Google Maps </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section-container bg-white dark:bg-[#2a1424]" id="itinerary">
+                <div class="max-w-4xl w-full flex flex-col items-center reveal-element">
+                    <div class="text-center mb-16">
+                        <span class="text-primary text-xs font-black uppercase tracking-[0.3em]">El Itinerario</span>
+                        <h2 class="text-4xl md:text-5xl font-black mt-4 text-[#1b0d17] dark:text-white">Nuestro Recorrido</h2>
+                    </div>
+                    <div class="relative w-full space-y-0">
+                        <div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent hidden md:block"></div>
+                        <div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 pb-16">
+                            <div class="md:w-1/2 md:text-right md:pr-12">
+                                <h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Ceremonia Religiosa</h4>
+                                <p class="text-primary font-black mt-1">1:00 PM</p>
+                            </div>
+                            <div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
+                                <span class="material-symbols-outlined text-xl animate-pulse-icon">church</span>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12 hidden md:block">
+                                <p class="text-gray-500 text-sm">Acompáñanos en una hermosa misa en la Parroquia de la Santísima Trinidad.</p>
+                            </div>
+                        </div>
+                        <div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 pb-16">
+                            <div class="md:w-1/2 md:text-right md:pr-12 hidden md:block">
+                                <p class="text-gray-500 text-sm">Aperitivos y bebidas mientras llegan los invitados y la quinceañera.</p>
+                            </div>
+                            <div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
+                                <span class="material-symbols-outlined text-xl animate-tilt-icon">wine_bar</span>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12">
+                                <h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Bienvenida</h4>
+                                <p class="text-primary font-black mt-1">3:30 PM</p>
+                            </div>
+                        </div>
+                        <div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 pb-16">
+                            <div class="md:w-1/2 md:text-right md:pr-12">
+                                <h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">El Vals</h4>
+                                <p class="text-primary font-black mt-1">8:30 PM</p>
+                            </div>
+                            <div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
+                                <span class="material-symbols-outlined text-xl animate-sway-icon">music_note</span>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12 hidden md:block">
+                                <p class="text-gray-500 text-sm">La presentación tradicional y el primer baile con mi padre.</p>
+                            </div>
+                        </div>
+                        <div class="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
+                            <div class="md:w-1/2 md:text-right md:pr-12 hidden md:block">
+                                <p class="text-gray-500 text-sm">¡Luego bailamos toda la noche!</p>
+                            </div>
+                            <div class="relative z-10 size-12 rounded-full bg-primary flex items-center justify-center text-white shadow-lg border-4 border-white dark:border-[#2a1424]">
+                                <span class="material-symbols-outlined text-xl animate-glow-icon">restaurant</span>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12">
+                                <h4 class="text-2xl font-bold text-[#1b0d17] dark:text-white">Baile</h4>
+                                <p class="text-primary font-black mt-1">5:30 PM - 11:30 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-24">
+                       
+                    </div>
+                </div>
+            </section>
+            <section class="section-container bg-[#fcf8fa] dark:bg-background-dark" id="gallery">
+                <div class="max-w-6xl w-full flex flex-col items-center reveal-element">
+                    <div class="text-center mb-16">
+                        <span class="material-symbols-outlined text-5xl text-gold-accent mb-2">photo_camera</span>
+                        <h2 class="text-4xl md:text-5xl font-black text-[#1b0d17] dark:text-white">Galería de Momentos</h2>
+                        <p class="text-gray-500 uppercase tracking-[0.2em] text-sm mt-4">Recuerdos Inolvidables</p>
+                    </div>
+                    <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4 w-full px-4" id="gallery-grid">
+                        <div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
+                            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+                            <img alt="Momentos 1" class="gallery-img w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-110" src="img/G01.jpeg"/>
+                        </div>
+                        <div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
+                            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+                            <img alt="Momentos 2" class="gallery-img w-full aspect-square object-cover transform transition-transform duration-700 group-hover:scale-110" src="img/G02.jpeg"/>
+                        </div>
+                        <div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
+                            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+                            <img alt="Momentos 3" class="gallery-img w-full h-64 object-cover transform transition-transform duration-700 group-hover:scale-110" src="img/G03.jpeg"/>
+                        </div>
+                        <div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
+                            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+                            <img alt="Momentos 4" class="gallery-img w-full h-96 object-cover object-left transform transition-transform duration-700 group-hover:scale-110" src="img/G03.jpeg"/>
+                        </div>
+                        <div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
+                            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+                            <img alt="Momentos 5" class="gallery-img w-full h-72 object-cover object-top transform transition-transform duration-700 group-hover:scale-110" src="img/G01.jpeg"/>
+                        </div>
+                        <div class="break-inside-avoid relative rounded-2xl overflow-hidden shadow-lg group cursor-pointer">
+                            <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10"></div>
+                            <img alt="Momentos 6" class="gallery-img w-full aspect-square object-cover object-right transform transition-transform duration-700 group-hover:scale-110" src="img/G02.jpeg"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section-container bg-white dark:bg-[#2a1424]" id="dresscode">
+                <div class="max-w-4xl w-full flex flex-col items-center reveal-element">
+                    <div class="text-center mb-16">
+                        <span class="material-symbols-outlined text-5xl text-gold-accent mb-4 animate-bounce-slow">checkroom</span>
+                        <h2 class="text-4xl md:text-5xl font-black text-[#1b0d17] dark:text-white">Código de Vestimenta</h2>
+                        <p class="text-primary text-sm font-bold uppercase tracking-[0.3em] mt-4">Elegancia Esmeralda</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full px-4">
+                        <div class="relative group p-8 rounded-[2rem] bg-[#fcf8fa] dark:bg-white/5 border border-primary/10 overflow-hidden text-center hover:border-gold-accent/50 transition-all duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <div class="size-24 rounded-full bg-white dark:bg-[#22101c] border-2 border-gold-accent/30 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                                    <span class="material-symbols-outlined text-5xl text-[#1b0d17] dark:text-white">man</span>
+                                </div>
+                                <h3 class="text-2xl font-bold font-display text-[#1b0d17] dark:text-white mb-2">Caballeros</h3>
+                                <p class="text-gold-accent font-black uppercase tracking-widest text-xs mb-4">Formal</p>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            La elegancia es la clave para acompañar esta noche especial. </p>
+                            </div>
+                        </div>
+                        <div class="relative group p-8 rounded-[2rem] bg-[#fcf8fa] dark:bg-white/5 border border-primary/10 overflow-hidden text-center hover:border-gold-accent/50 transition-all duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div class="relative z-10 flex flex-col items-center">
+                                <div class="size-24 rounded-full bg-white dark:bg-[#22101c] border-2 border-gold-accent/30 flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                                    <span class="material-symbols-outlined text-5xl text-[#1b0d17] dark:text-white">woman</span>
+                                </div>
+                                <h3 class="text-2xl font-bold font-display text-[#1b0d17] dark:text-white mb-2">Damas</h3>
+                                <p class="text-gold-accent font-black uppercase tracking-widest text-xs mb-4">Formal</p>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            Brilla con nosotros en esta celebración única. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 p-8 text-center max-w-2xl relative">
+                        <span class="material-symbols-outlined absolute top-0 left-0 text-4xl text-gold-accent/20 -translate-y-1/2 -translate-x-1/2">format_quote</span>
+                        <p class="text-xl md:text-2xl font-serif italic text-[#1b0d17]/80 dark:text-white/90">
+                    "Formal: Queremos verte brillar, por favor asiste con vestimenta formal." </p>
+                        <span class="material-symbols-outlined absolute bottom-0 right-0 text-4xl text-gold-accent/20 translate-y-1/2 translate-x-1/2 transform rotate-180">format_quote</span>
+                    </div>
+                </div>
+            </section>
+            <section class="section-container bg-[#22101c] text-white overflow-hidden relative" id="rsvp">
+                <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+                <div class="max-w-2xl w-full z-10 reveal-element">
+                    <div class="text-center mb-12">
+                        <div class="size-20 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
+                            <span class="material-symbols-outlined text-4xl text-primary">mail</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-black mb-4">Confirmar su asistencia</h2>
+                        <p class="text-white/60">Sé parte de esta historia. Por favor confirma antes del 11 de febrero de 2026.</p>
+                    </div>
+                    <form class="bg-white/5 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl flex flex-col gap-6">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">Nombre Completo</label>
+                            <input class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-white/20" id="rsvp-name" placeholder="ej. María González" type="text"/>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">Número de Invitados</label>
+                                <select class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none" id="rsvp-guests">
+                                    <option class="bg-[#22101c]" value="1">1 Invitado</option>
+                                    <option class="bg-[#22101c]" value="2">2 Invitados</option>
+                                    <option class="bg-[#22101c]" value="3">3 Invitados</option>
+                                    <option class="bg-[#22101c]" value="4">4 Invitados</option>
+                                </select>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">¿Asistirás?</label>
+                                <select class="w-full h-14 rounded-2xl border-white/10 bg-white/5 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none" id="rsvp-attendance">
+                                    <option class="bg-[#22101c]" value="Sí">Acepto con Gusto</option>
+                                    <option class="bg-[#22101c]" value="No">Lamentablemente No Asistiré</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-xs font-black uppercase tracking-widest text-white/70 ml-1">Mensaje Especial o Restricciones</label>
+                            <textarea class="w-full h-32 rounded-2xl border-white/10 bg-white/5 p-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none placeholder:text-white/20" id="rsvp-message" placeholder="Notas opcionales..."></textarea>
+                        </div>
+                        <button class="mt-4 w-full h-16 rounded-2xl bg-primary text-white text-lg font-black shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all uppercase tracking-widest flex items-center justify-center gap-2" onclick="sendWhatsapp()" type="button">
+                            <span class="material-symbols-outlined">send</span> 
+                            Confirmar por WhatsApp
+                        </button>
+                    </form>
+                    <footer class="mt-20 text-center pb-8">
+                        <p class="text-white/30 text-xs tracking-[0.2em] mb-4">CREADO CON AMOR PARA LOS XV DE ESMERALDA</p>
+                        <div class="flex justify-center gap-4 text-white/20">
+                            <span class="material-symbols-outlined text-sm">favorite</span>
+                            <span class="material-symbols-outlined text-sm">celebration</span>
+                            <span class="material-symbols-outlined text-sm">stars</span>
+                        </div>
+                    </footer>
+                </div>
+            </section>
+        </main>
+        <div class="fixed inset-0 z-[60] bg-black/95 hidden items-center justify-center p-4 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="lightbox">
+            <button class="absolute top-4 right-4 z-[70] p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all transform hover:scale-110" id="lightbox-close">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+            <button class="absolute left-4 top-1/2 -translate-y-1/2 z-[70] p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all transform hover:scale-110 group" id="lightbox-prev">
+                <span class="material-symbols-outlined text-4xl group-hover:-translate-x-1 transition-transform">arrow_back_ios_new</span>
+            </button>
+            <img alt="Full screen" class="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl border-2 border-primary/20 scale-95 transition-transform duration-300" id="lightbox-img" src=""/>
+            <button class="absolute right-4 top-1/2 -translate-y-1/2 z-[70] p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all transform hover:scale-110 group" id="lightbox-next">
+                <span class="material-symbols-outlined text-4xl group-hover:translate-x-1 transition-transform">arrow_forward_ios</span>
+            </button>
+        </div>
+        <script>
     document.addEventListener('DOMContentLoaded', () => {
         // --- Music Logic ---
         const bgMusic = document.getElementById('bg-music');
@@ -775,8 +731,9 @@
         }
         const text = `*CONFIRMACIÓN XV ESMERALDA* \n\nHola, soy *${name}*.\n\nAsistencia: *${attendance}*\nInvitados: *${guests}*\nNota: ${message}`;
         const encodedText = encodeURIComponent(text);
-        const phoneNumber = "5215555555555"; 
+        const phoneNumber = "5217751632554"; 
         window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, '_blank');
     }
 </script>
-</body></html>
+    </body>
+</html>
